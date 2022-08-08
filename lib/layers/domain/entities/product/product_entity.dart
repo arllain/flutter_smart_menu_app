@@ -1,16 +1,17 @@
+import 'package:equatable/equatable.dart';
+import 'package:smart_menu_app/core/enums/status/status.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
-import 'package:smart_menu_app/layers/domain/entities/enums/status/status.dart';
 
-class ProductEntity {
-  int id;
-  String name;
-  String description;
-  double price;
-  CategoryEntity category;
-  Status status;
-  DateTime dateCreated;
+class ProductEntity extends Equatable {
+  final int id;
+  final String name;
+  final String description;
+  final double price;
+  final CategoryEntity category;
+  final Status status;
+  final DateTime dateCreated;
 
-  ProductEntity({
+  const ProductEntity({
     required this.id,
     required this.name,
     required this.description,
@@ -19,4 +20,8 @@ class ProductEntity {
     required this.status,
     required this.dateCreated,
   });
+
+  @override
+  List<Object?> get props =>
+      [id, name, description, price, category, status, dateCreated];
 }

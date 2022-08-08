@@ -1,13 +1,18 @@
-class CategoryEntity {
-  int id;
-  String name;
-  String description;
-  DateTime dateCreated;
+import 'package:equatable/equatable.dart';
 
-  CategoryEntity({
+class CategoryEntity extends Equatable {
+  final int id;
+  final String name;
+  final String description;
+  final DateTime dateCreated;
+
+  const CategoryEntity({
     required this.id,
     required this.name,
     required this.description,
     required this.dateCreated,
   });
+
+  @override
+  List<Object?> get props => [id, name, description, dateCreated];
 }
