@@ -13,8 +13,9 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   # Value equality
-  equatable: ^2.0.3
+  equatable: ^2.0.5
   dartz: ^0.10.1
+  fluentui_system_icons: ^1.1.178
 
 dev_dependencies:
   flutter_test:
