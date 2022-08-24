@@ -16,6 +16,11 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
   fluentui_system_icons: ^1.1.178
+  gap: ^2.0.0
+  get:
+  flutter_localizations:
+    sdk: flutter
+  localization: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +31,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/i18n/
+    - assets/
+    - assets/icons/
