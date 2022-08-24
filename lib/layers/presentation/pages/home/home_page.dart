@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                Gap(AppLayout.getHeight(40)),
+                Gap(AppLayout.getHeight(20)),
                 Row(
                   children: [
                     Text(
