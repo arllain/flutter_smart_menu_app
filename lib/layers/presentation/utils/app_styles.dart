@@ -11,6 +11,8 @@ class Styles {
   static Color blueColor = const Color(0xFF526799);
   static Color orangeColor = const Color(0xFFF37B67);
   static Color lightGrey = const Color(0xFFC0C0CF);
+  static Color greyColor = const Color(0xFF8E8EA9);
+  static Color yellowColor = const Color(0xFFFFB01D);
 
   static TextStyle textStyle =
       TextStyle(fontSize: 16, color: textColor, fontWeight: FontWeight.w500);
@@ -22,4 +24,15 @@ class Styles {
       fontSize: 17, color: Colors.grey.shade500, fontWeight: FontWeight.w500);
   static TextStyle headLineStyle4 = TextStyle(
       fontSize: 14, color: Colors.grey.shade500, fontWeight: FontWeight.w500);
+
+  static TextStyle tabButtonS = TextStyle(
+    color: white,
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle tabButtonU = TextStyle(
+    color: greyColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+  );
 }

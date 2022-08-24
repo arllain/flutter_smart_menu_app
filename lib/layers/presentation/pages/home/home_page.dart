@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:localization/localization.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_info_list.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/tabbar/tabbar_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,12 +24,14 @@ class HomePage extends StatelessWidget {
                   children: [
                     Text(
                       'choose-the-best-for-you'.i18n(),
-                      style: Styles.headLineStyle2.copyWith(shadows: [
-                        Shadow(
-                            color: Styles.black.withOpacity(0.3),
-                            offset: const Offset(5, 5),
-                            blurRadius: 15)
-                      ]),
+                      style: Styles.headLineStyle2.copyWith(
+                        shadows: [
+                          Shadow(
+                              color: Styles.black.withOpacity(0.3),
+                              offset: const Offset(5, 5),
+                              blurRadius: 15)
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -76,6 +80,10 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 Gap(AppLayout.getHeight(25)),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: TabBarButton(categories: categoryList),
+                )
               ],
             ),
           )
