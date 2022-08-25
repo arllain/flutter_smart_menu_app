@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "All",
+    "description": "Category description",
+    "dateCreated": "2022-08-25 00:36:58.235742"
+  },
+  {
+    "id": 2,
+    "name": "Most Popular",
+    "description": "Category description",
+    "dateCreated": "2022-08-25 00:36:58.235742"
+  },
+  {
+    "id": 3,
+    "name": "Drink",
+    "description": "Category description",
+    "dateCreated": "2022-08-25 00:36:58.235742"
+  },
+  {
+    "id": 4,
+    "name": "Food",
+    "description": "Category description",
+    "dateCreated": "2022-08-25 00:36:58.235742"
+  },
+  {
+    "id": 5,
+    "name": "Dessert",
+    "description": "Category description",
+    "dateCreated": "2022-08-25 00:36:58.235742"
+  }
+]
