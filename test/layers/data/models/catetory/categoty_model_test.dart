@@ -6,7 +6,8 @@ import 'package:smart_menu_app/layers/domain/entities/category/category_entity.d
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  var dateCreated = DateTime.parse('2022-08-25 00:36:58.235742');
+  var dateCreated = DateTime.tryParse('2022-08-27T21:40:19+00:00') as DateTime;
+
   var tCategoryModel = CategoryModel(
       id: 1,
       name: 'category name',
@@ -39,7 +40,7 @@ void main() {
           "id": 1,
           "name": "category name",
           "description": "category description",
-          "dateCreated": "2022-08-25 00:36:58.235742"
+          "dateCreated": "2022-08-27 21:40:19.000Z"
         };
         expect(result, expectedMap);
       },

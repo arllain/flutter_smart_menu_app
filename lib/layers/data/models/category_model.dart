@@ -17,7 +17,7 @@ class CategoryModel extends CategoryEntity {
         id: json['id'],
         name: json['name'],
         description: json['description'],
-        dateCreated: DateTime.tryParse(json['dateCreated']) as DateTime);
+        dateCreated: DateTime.tryParse(json['created_at']) as DateTime);
   }
 
   Map<String, dynamic> toJson() {

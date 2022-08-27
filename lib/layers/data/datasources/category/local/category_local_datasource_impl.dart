@@ -32,6 +32,6 @@ class CategoryLocalDataSourceImpl implements CategoryLocalDataSource {
   Future<Future<bool>> cacheCategoryList(
       List<CategoryModel> categoryList) async {
     return sharedPreferences.setString(
-        'cachedCategoryList', jsonEncode(categoryList));
+        cachedCategoryList, jsonEncode(categoryList));
   }
 }
