@@ -4,8 +4,8 @@ import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_info_list.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/category_widget/categories_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/product_box_card/product_box_card.dart';
-import 'package:smart_menu_app/layers/presentation/widgets/tabbar/tabbar_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
                 Gap(AppLayout.getHeight(25)),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: TabBarButton(categories: categoryList),
+                  child: CategoriesWidget(categories: categoryList),
                 ),
                 Gap(AppLayout.getHeight(15)),
                 Row(

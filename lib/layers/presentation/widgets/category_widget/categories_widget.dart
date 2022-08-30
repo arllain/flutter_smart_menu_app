@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
-class TabBarButton extends StatefulWidget {
+class CategoriesWidget extends StatefulWidget {
   final List<Map<String, dynamic>> categories;
-  const TabBarButton({Key? key, required this.categories}) : super(key: key);
+  const CategoriesWidget({Key? key, required this.categories})
+      : super(key: key);
 
   @override
-  State<TabBarButton> createState() => _TabBarButtonState();
+  State<CategoriesWidget> createState() => _CategoriesWidgetState();
 }
 
-class _TabBarButtonState extends State<TabBarButton> {
+class _CategoriesWidgetState extends State<CategoriesWidget> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
