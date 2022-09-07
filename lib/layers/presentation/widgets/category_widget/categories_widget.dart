@@ -1,55 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
-import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/category_widget/bloc/category_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/category_widget/category_item.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
 
-class CategoriesWidget extends StatefulWidget {
-  final List<Map<String, dynamic>> categories;
-  const CategoriesWidget({Key? key, required this.categories})
-      : super(key: key);
+class CategoriesWidget extends StatelessWidget {
+  const CategoriesWidget({
+    Key? key,
+  }) : super(key: key);
 
-  @override
-  State<CategoriesWidget> createState() => _CategoriesWidgetState();
-}
-
-class _CategoriesWidgetState extends State<CategoriesWidget> {
-  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: widget.categories.asMap().keys.toList().map((index) {
-        bool selected = index == selectedIndex;
-        return InkWell(
-          splashColor: Colors.transparent,
-          onTap: () {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-          child: Container(
-            height: AppLayout.getHeight(44),
-            padding: const EdgeInsets.symmetric(horizontal: 19.0),
-            decoration: BoxDecoration(
-              color: selected ? Styles.yellowColor : Colors.transparent,
-              borderRadius: BorderRadius.circular(50.0),
+    return BlocBuilder<CategoryBloc, CategoryState>(
+      builder: (context, state) {
+        if (state.status.isError) {
+          return MessageDisplay(message: state.message);
+        }
+
+        return SizedBox(
+          height: AppLayout.getHeight(4) * 15,
+          child: ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return CategoryItem(
+                key: ValueKey('${state.categories[index].name}$index'),
+                category: state.categories[index],
+                callback: (CategoryEntity categorySelected) {
+                  context.read<CategoryBloc>().add(
+                        SelectCategoryEvent(
+                          idSelected: categorySelected.id,
+                        ),
+                      );
+                },
+              );
+            },
+            scrollDirection: Axis.horizontal,
+            separatorBuilder: (_, __) => const SizedBox(
+              width: 1.0,
             ),
-            child: Center(
-              child: Text(
-                widget.categories[index]['name'],
-                style: selected
-                    ? Styles.tabButtonS
-                    : Styles.tabButtonU.copyWith(
-                        shadows: [
-                          Shadow(
-                              color: Styles.black.withOpacity(0.2),
-                              offset: const Offset(5, 5),
-                              blurRadius: 15)
-                        ],
-                      ),
-              ),
-            ),
+            itemCount: state.categories.length,
           ),
         );
-      }).toList(),
+      },
     );
   }
 }

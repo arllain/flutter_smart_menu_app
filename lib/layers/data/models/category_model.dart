@@ -20,6 +20,14 @@ class CategoryModel extends CategoryEntity {
         dateCreated: DateTime.tryParse(json['created_at']) as DateTime);
   }
 
+  factory CategoryModel.fromSheredPrefencesJson(Map<String, dynamic> json) {
+    return CategoryModel(
+        id: json['id'],
+        name: json['name'],
+        description: json['description'],
+        dateCreated: DateTime.tryParse(json['dateCreated']) as DateTime);
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,

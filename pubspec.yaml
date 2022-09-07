@@ -12,18 +12,28 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  # Value equality
-  equatable: ^2.0.5
-  dartz: ^0.10.1
   fluentui_system_icons: ^1.1.178
   gap: ^2.0.0
+  # Value equality
+  equatable: ^2.0.5
+  # Functional programming
+  dartz: ^0.10.1
   get:
+  # Inaternationalization
   flutter_localizations:
     sdk: flutter
   localization: ^2.1.0
-  internet_connection_checker: ^0.0.1+4
+  # Local cache
   shared_preferences: ^2.0.15
+  # Remote API
   http: ^0.13.5
+  internet_connection_checker: ^0.0.1+4
+  # Bloc for state management
+  flutter_bloc: ^8.1.1
+  # service locator
+  get_it: ^7.2.0
+  # Load configuration at runtime from a .env file which can be used throughout the application
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:

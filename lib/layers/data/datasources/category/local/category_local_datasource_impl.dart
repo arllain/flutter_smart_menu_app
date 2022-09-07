@@ -19,7 +19,7 @@ class CategoryLocalDataSourceImpl implements CategoryLocalDataSource {
 
     if (jsonData.isNotEmpty) {
       var list = jsonData.map<CategoryModel>((jsonItem) {
-        return CategoryModel.fromJson(jsonItem);
+        return CategoryModel.fromSheredPrefencesJson(jsonItem);
       }).toList();
 
       return Future.value(list);

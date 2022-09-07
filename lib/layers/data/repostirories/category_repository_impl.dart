@@ -24,6 +24,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
       try {
         final remoteCategoryList =
             await categoryRemoteDataSource.getAllCategories();
+        categoryLocalDataSource.cacheCategoryList(remoteCategoryList);
         return Right(remoteCategoryList);
       } on ServerException {
         return Left(ServerFailure());
