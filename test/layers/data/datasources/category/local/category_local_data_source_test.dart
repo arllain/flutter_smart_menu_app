@@ -25,7 +25,8 @@ void main() {
     final List<CategoryModel> tCategoryList =
         (json.decode(fixture('/category/category_list_cached.json'))
                 as List<dynamic>)
-            .map<CategoryModel>((item) => CategoryModel.fromJson(item))
+            .map<CategoryModel>(
+                (item) => CategoryModel.fromSheredPrefencesJson(item))
             .toList();
 
     test(

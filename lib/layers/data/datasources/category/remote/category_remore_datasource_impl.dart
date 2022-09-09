@@ -20,7 +20,6 @@ class CategoryRemoteDataSourceImpl implements CategoryRemoteDataSource {
 
   @override
   Future<CategoryModel> getCategoryById(String id) {
-    // TODO: implement getCategoryById
     throw UnimplementedError();
   }
 

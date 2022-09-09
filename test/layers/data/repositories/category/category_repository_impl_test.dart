@@ -100,8 +100,7 @@ void main() {
       await repository.getAllCategories();
       // assert
       verify(mockCategoryRemoteDataSource.getAllCategories());
-      verifyNever(
-          mockCategoryLocalDataSource.cacheCategoryList(tCategoryModelList));
+      verify(mockCategoryLocalDataSource.cacheCategoryList(tCategoryModelList));
     });
 
     test(
