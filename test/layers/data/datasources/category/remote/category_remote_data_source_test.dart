@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -10,6 +11,7 @@ import 'package:smart_menu_app/layers/data/models/category_model.dart';
 
 import '../../../../../fixtures/fixture_reader.dart';
 import 'category_remote_data_source_test.mocks.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 @GenerateMocks([http.Client],
     customMocks: [MockSpec<http.Client>(as: #MockHttpCliente)])
@@ -20,18 +22,18 @@ void main() {
   setUpAll(() {
     mockHttpClient = MockHttpCliente();
     dataSourceImpl = CategoryRemoteDataSourceImpl(client: mockHttpClient);
+    dotenv.testLoad(fileInput: File('assets/.env').readAsStringSync());
   });
 
   final List<CategoryModel> tCategoryList =
-      (json.decode(fixture('/category/category_list_cached.json'))
-              as List<dynamic>)
+      (json.decode(fixture('/category/category_list.json')) as List<dynamic>)
           .map<CategoryModel>((item) => CategoryModel.fromJson(item))
           .toList();
 
   void setUpMockHttpClientSuccess200() {
     when(mockHttpClient.get(any, headers: anyNamed('headers'))).thenAnswer(
         (_) async =>
-            http.Response(fixture('/category/category_list_cached.json'), 200));
+            http.Response(fixture('/category/category_list.json'), 200));
   }
 
   void setUpMockHttpClientFailure404() {
@@ -40,27 +42,6 @@ void main() {
   }
 
   group('getAllCategories', () {
-    test(
-        'should perform a GET request on a URL with application/json and apikey header',
-        () async {
-      // arrange
-      setUpMockHttpClientSuccess200();
-      //act
-      await dataSourceImpl.getAllCategories();
-      // assert
-      verify(
-        mockHttpClient.get(
-          Uri.parse(
-              'https://jsxjwrxzefciuvttbbly.supabase.co/rest/v1/Category'),
-          headers: {
-            'Content-Type': 'application/json',
-            'apiKey':
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzeGp3cnh6ZWZjaXV2dHRiYmx5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjE2MzYxMjMsImV4cCI6MTk3NzIxMjEyM30.Js_i3Dus-T9lls-eCay5MDCq7sfy5oDCr59mzVGumkU'
-          },
-        ),
-      );
-    });
-
     test(
         'should return a list of Category when the response code is 200 (success)',
         () async {
