@@ -5,6 +5,7 @@ import 'package:smart_menu_app/core/error/failure.dart';
 import 'package:smart_menu_app/core/usecases/usecase.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';
+import 'package:smart_menu_app/layers/domain/usecases/params/no_params.dart';
 
 part 'category_event.dart';
 part 'category_state.dart';
