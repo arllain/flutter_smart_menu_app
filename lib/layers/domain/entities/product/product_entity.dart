@@ -8,7 +8,7 @@ class ProductEntity extends Equatable {
   final String description;
   final double price;
   final CategoryEntity category;
-  final Status status;
+  final String imageURL;
   final DateTime dateCreated;
 
   const ProductEntity({
@@ -17,11 +17,11 @@ class ProductEntity extends Equatable {
     required this.description,
     required this.price,
     required this.category,
-    required this.status,
+    required this.imageURL,
     required this.dateCreated,
   });
 
   @override
   List<Object?> get props =>
-      [id, name, description, price, category, status, dateCreated];
+      [id, name, description, price, category, dateCreated];
 }

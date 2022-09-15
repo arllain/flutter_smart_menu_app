@@ -18,7 +18,7 @@ void main() {
       description: 'Product description',
       price: 100.00,
       category: categoryEntity,
-      status: Status.active,
+      imageURL: 'http://images',
       dateCreated: dateCreated,
     );
     expect(productEntity, isNotNull);
@@ -38,7 +38,7 @@ void main() {
       description: 'Product description',
       price: 100.00,
       category: categoryEntity,
-      status: Status.active,
+      imageURL: 'http://images',
       dateCreated: dateCreated,
     );
     expect(productEntity.category, isNotNull);

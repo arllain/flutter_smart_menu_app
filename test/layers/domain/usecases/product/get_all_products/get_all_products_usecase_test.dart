@@ -32,7 +32,8 @@ void main() {
       description: 'description 1',
       price: 1.00,
       category: categoryEntity,
-      status: Status.active,
+      imageURL:
+          "https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
       dateCreated: DateTime.now());
 
   ProductEntity productEntity2 = ProductEntity(
@@ -41,7 +42,8 @@ void main() {
       description: 'description 2',
       price: 2.00,
       category: categoryEntity,
-      status: Status.active,
+      imageURL:
+          "https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
       dateCreated: DateTime.now());
 
   ProductEntity productEntity3 = ProductEntity(
@@ -50,7 +52,8 @@ void main() {
       description: 'description 3',
       price: 3.00,
       category: categoryEntity2,
-      status: Status.active,
+      imageURL:
+          "https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
       dateCreated: DateTime.now());
 
   List<ProductEntity> productList = [];
