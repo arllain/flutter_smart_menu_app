@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:smart_menu_app/core/error/exceptions.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/remote/category_remore_datasource.dart';
-import 'package:smart_menu_app/layers/data/models/category_model.dart';
+import 'package:smart_menu_app/layers/data/models/category/category_model.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryRemoteDataSourceImpl implements CategoryRemoteDataSource {

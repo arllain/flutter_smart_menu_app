@@ -11,7 +11,8 @@ import 'package:smart_menu_app/layers/data/datasources/category/local/category_l
     as _i3;
 import 'package:smart_menu_app/layers/data/datasources/category/remote/category_remore_datasource.dart'
     as _i5;
-import 'package:smart_menu_app/layers/data/models/category_model.dart' as _i2;
+import 'package:smart_menu_app/layers/data/models/category/category_model.dart'
+    as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

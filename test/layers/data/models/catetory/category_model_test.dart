@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_menu_app/layers/data/models/category_model.dart';
+import 'package:smart_menu_app/layers/data/models/category/category_model.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 
 import '../../../../fixtures/fixture_reader.dart';

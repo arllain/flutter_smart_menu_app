@@ -5,7 +5,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/local/category_local_datasource_impl.dart';
-import 'package:smart_menu_app/layers/data/models/category_model.dart';
+import 'package:smart_menu_app/layers/data/models/category/category_model.dart';
 import '../../../../../fixtures/fixture_reader.dart';
 import 'category_local_data_source_test.mocks.dart';
 

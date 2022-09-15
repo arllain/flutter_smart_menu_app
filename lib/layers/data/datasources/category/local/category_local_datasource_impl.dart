@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_menu_app/core/error/exceptions.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/local/category_local_datasource.dart';
-import 'package:smart_menu_app/layers/data/models/category_model.dart';
+import 'package:smart_menu_app/layers/data/models/category/category_model.dart';
 
 const cachedCategoryList = 'CACHED_CATEGORY_LIST';
 

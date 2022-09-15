@@ -7,7 +7,7 @@ import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 import 'package:smart_menu_app/core/error/exceptions.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/remote/category_remore_datasource_impl.dart';
-import 'package:smart_menu_app/layers/data/models/category_model.dart';
+import 'package:smart_menu_app/layers/data/models/category/category_model.dart';
 
 import '../../../../../fixtures/fixture_reader.dart';
 import 'category_remote_data_source_test.mocks.dart';
