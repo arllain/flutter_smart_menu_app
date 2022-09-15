@@ -13,7 +13,7 @@ class CategoryRemoteDataSourceImpl implements CategoryRemoteDataSource {
 
   @override
   Future<List<CategoryModel>> getAllCategories() =>
-      _getAllCategoriesFormUrl("${dotenv.get('BASE_URL')}Category?order=id");
+      _getAllCategoriesFromUrl("${dotenv.get('BASE_URL')}Category?order=id");
 
   @override
   Future<CategoryModel> getCategoryById(String id) {
@@ -21,7 +21,7 @@ class CategoryRemoteDataSourceImpl implements CategoryRemoteDataSource {
     throw UnimplementedError();
   }
 
-  Future<List<CategoryModel>> _getAllCategoriesFormUrl(String url) async {
+  Future<List<CategoryModel>> _getAllCategoriesFromUrl(String url) async {
     final response = await client.get(
       Uri.parse(url),
       headers: {
@@ -31,12 +31,12 @@ class CategoryRemoteDataSourceImpl implements CategoryRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      final List<CategoryModel> tCategoryList =
+      final List<CategoryModel> categoryList =
           (json.decode(response.body) as List<dynamic>)
               .map<CategoryModel>((item) => CategoryModel.fromJson(item))
               .toList();
 
-      return tCategoryList;
+      return categoryList;
     } else {
       throw ServerException();
     }

@@ -8,7 +8,7 @@ import 'package:smart_menu_app/core/network/network_info.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/local/category_local_datasource.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/remote/category_remore_datasource.dart';
 import 'package:smart_menu_app/layers/data/models/category/category_model.dart';
-import 'package:smart_menu_app/layers/data/repostirories/category_repository_impl.dart';
+import 'package:smart_menu_app/layers/data/repostirories/category/category_repository_impl.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'category_repository_impl_test.mocks.dart';
 
