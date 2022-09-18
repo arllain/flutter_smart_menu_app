@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
-class ProductBoxCard extends StatelessWidget {
-  final Map<String, dynamic> product;
-  const ProductBoxCard({super.key, required this.product});
+class ProductCardWidget extends StatelessWidget {
+  final ProductEntity product;
 
+  const ProductCardWidget({super.key, required this.product});
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
@@ -45,21 +46,21 @@ class ProductBoxCard extends StatelessWidget {
                 color: Styles.primaryColor,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(product['imageURL']),
+                  image: NetworkImage(product.imageURL),
                 ),
               ),
             ),
             const Gap(5),
             Center(
               child: Text(
-                product['name'],
+                product.name,
                 style: Styles.productNameStyle,
               ),
             ),
             const Gap(5),
             Center(
               child: Text(
-                '\$${product['price']}',
+                '\$${product.price}',
                 style: Styles.productPriceStyle,
               ),
             ),
@@ -73,7 +74,7 @@ class ProductBoxCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 onPressed: () {
-                  print('${product['id']} - ${product['name']}');
+                  print('${product.id} - ${product.name}');
                 },
                 padding: const EdgeInsets.all(5),
                 child: Center(

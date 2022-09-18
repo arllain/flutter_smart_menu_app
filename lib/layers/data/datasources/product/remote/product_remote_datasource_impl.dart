@@ -19,7 +19,7 @@ class ProductRemoteDataSourceImp implements ProductRemoteDataSource {
   Future<
       List<
           ProductModel>> getProductsByCategory(int id) => _getAllProductsFromUrl(
-      "${dotenv.get('BASE_URL')}Product?select=id, name, description,price, imageURL, created_at, category(*)&category=eq.$id");
+      "${dotenv.get('BASE_URL')}Product?select=id, name, description,price, imageURL, created_at, category(*)&category=eq.$id&order=id");
 
   Future<List<ProductModel>> _getAllProductsFromUrl(String url) async {
     final response = await client.get(

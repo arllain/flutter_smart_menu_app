@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:smart_menu_app/layers/presentation/utils/app_info_list.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
-import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/category_widget/categories_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/header_title/header_title.dart';
-import 'package:smart_menu_app/layers/presentation/widgets/product_box_card/product_box_card.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/product/product_by_category_widget/product_by_category_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/search_input_widget/search_input_widget.dart';
 
 class HomeLayout extends StatelessWidget {
@@ -28,6 +26,7 @@ class HomeLayout extends StatelessWidget {
               Gap(AppLayout.getHeight(25)),
               const CategoriesWidget(),
               Gap(AppLayout.getHeight(15)),
+              const ProductsByCategoryWidget(),
               // Row(
               //   children: [
               //     Text('Most Popular',

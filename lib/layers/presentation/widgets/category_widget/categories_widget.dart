@@ -5,6 +5,7 @@ import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/category_widget/bloc/category_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/category_widget/category_item.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/product/product_by_category_widget/bloc/products_by_category_bloc.dart';
 
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({
@@ -32,6 +33,12 @@ class CategoriesWidget extends StatelessWidget {
                   context.read<CategoryBloc>().add(
                         SelectCategoryEvent(
                           idSelected: categorySelected.id,
+                        ),
+                      );
+                  context.read<ProductsByCategoryBloc>().add(
+                        GetProductsByCategoryEvent(
+                          idSelected: categorySelected.id,
+                          categoryName: categorySelected.name,
                         ),
                       );
                 },
