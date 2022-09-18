@@ -4,7 +4,6 @@ import 'package:smart_menu_app/core/inject/injection_container.dart';
 import 'package:smart_menu_app/layers/presentation/pages/home/home_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/category_widget/bloc/category_bloc.dart';
-import 'package:smart_menu_app/layers/presentation/widgets/product/product_box_card/alll_product_widget/bloc/all_products_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/product/product_by_category_widget/bloc/products_by_category_bloc.dart';
 
 class HomePage extends StatelessWidget {
