@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
+import 'package:smart_menu_app/layers/presentation/pages/product/product_view_page/product_view_pgage.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
@@ -13,7 +14,10 @@ class ProductCardWidget extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return GestureDetector(
       onTap: () {
-        print('ProductBoxCard :: onTap');
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductViewPage(product: product)));
       },
       child: Container(
         width: size.width * 0.6,
