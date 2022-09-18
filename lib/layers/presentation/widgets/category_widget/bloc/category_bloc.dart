@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_menu_app/core/error/failure.dart';
-import 'package:smart_menu_app/core/usecases/usecase.dart';
+import 'package:smart_menu_app/core/error/failure_message.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/params/no_params.dart';
@@ -28,7 +27,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
       (failure) {
         emit(state.copyWith(
             status: CategoryStatus.error,
-            message: _mapFailureToMessage(failure)));
+            message: FailureMessage.mapFailureToMessage(failure)));
       },
       (categoryList) {
         emit(state.copyWith(
@@ -47,16 +46,5 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         idSelected: event.idSelected,
       ),
     );
-  }
-
-  String _mapFailureToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case ServerFailure:
-        return 'Server Failure';
-      case CacheFailure:
-        return 'Cache Failure';
-      default:
-        return 'Unexpected error';
-    }
   }
 }
