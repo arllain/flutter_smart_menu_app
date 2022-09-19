@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
 class ProductViewPage extends StatelessWidget {
   final ProductEntity product;
@@ -18,13 +21,27 @@ class ProductViewPage extends StatelessWidget {
           stretch: true,
           backgroundColor: Colors.grey.shade50,
           flexibleSpace: FlexibleSpaceBar(
-              stretchModes: const [
-                StretchMode.zoomBackground,
-              ],
-              background: Image.network(
-                product.imageURL,
-                fit: BoxFit.cover,
-              )),
+            stretchModes: const [
+              StretchMode.zoomBackground,
+            ],
+            background: CachedNetworkImage(
+              imageUrl: product.imageURL,
+              imageBuilder: (context, imageProvider) => Container(
+                height: AppLayout.getHeight(150),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Styles.primaryColor,
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          ),
           bottom: PreferredSize(
               preferredSize: const Size.fromHeight(45),
               child: Transform.translate(
