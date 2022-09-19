@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dartz/dartz_unsafe.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_menu_app/core/error/exceptions.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/local/product_local_datasource.dart';
@@ -37,7 +38,9 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
         return ProductModel.fromSheredPrefencesJson(jsonItem);
       }).toList();
 
-      list.retainWhere((element) => element.category.id == id);
+      if (id != 1) {
+        list.retainWhere((element) => element.category.id == id);
+      }
 
       return Future.value(list);
     } else {

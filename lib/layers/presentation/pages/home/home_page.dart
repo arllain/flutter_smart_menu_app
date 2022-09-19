@@ -158,7 +158,7 @@ class HomePage extends StatelessWidget {
           BlocProvider(
             create: (context) => getIt<ProductsByCategoryBloc>()
               ..add(
-                  GetProductsByCategoryEvent(idSelected: 2, categoryName: '')),
+                  GetProductsByCategoryEvent(idSelected: 1, categoryName: '')),
           ),
         ],
         child: const HomeLayout(),

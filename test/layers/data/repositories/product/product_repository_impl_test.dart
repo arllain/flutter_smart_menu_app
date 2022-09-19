@@ -34,7 +34,7 @@ void main() {
       dateCreated: dateCreated);
 
   var tCategoryModel2 = CategoryModel(
-      id: 1,
+      id: 2,
       name: 'category 2',
       description: 'category 2 description',
       dateCreated: dateCreated);
@@ -52,14 +52,14 @@ void main() {
       id: 2,
       name: 'product name',
       description: 'product description',
-      category: tCategoryModel1,
+      category: tCategoryModel2,
       price: 15.00,
       imageURL: 'https://images',
       dateCreated: dateCreated);
 
   List<ProductModel> tAllProductModelList = [tProductModel1, tProductModel2];
   List<ProductEntity> tAllProductList = tAllProductModelList;
-  List<ProductModel> tProductModelByCategoryList = [tProductModel1];
+  List<ProductModel> tProductModelByCategoryList = [tProductModel2];
   List<ProductEntity> tProductByCategoryList = tProductModelByCategoryList;
 
   setUpAll(() {
@@ -77,6 +77,9 @@ void main() {
 
     when(mockProductRemoteDataSource.getProductsByCategory(tCategoryModel1.id))
         .thenAnswer((_) async => tProductModelByCategoryList);
+
+    // when(mockProductRemoteDataSource.getProductsByCategory(tCategoryModel2.id))
+    //     .thenAnswer((_) async => tAllProductModelList);
   });
 
   group('getAllProducts', () {
@@ -122,17 +125,33 @@ void main() {
     });
 
     test(
-        'should return remote a list of all products by category when the call to remote data source is succesful',
+        'should return remote a list of all products by category id equals 1 when the call to remote data source is succesful',
         () async {
       // arrange
       when(mockProductRemoteDataSource
               .getProductsByCategory(tCategoryModel1.id))
-          .thenAnswer((_) async => tProductModelByCategoryList);
+          .thenAnswer((_) async => tAllProductModelList);
       // act
       final result = await repository.getProductsByCategory(tCategoryModel1.id);
       // assert
-      verify(mockProductRemoteDataSource
+      verifyNever(mockProductRemoteDataSource
           .getProductsByCategory(tCategoryModel1.id));
+      expect(result, equals(Right(tAllProductModelList)));
+    });
+
+    test(
+        'should return remote a list of all products by category id not equals 1 when the call to remote data source is succesful',
+        () async {
+      // arrange
+      when(mockProductRemoteDataSource
+              .getProductsByCategory(tCategoryModel2.id))
+          .thenAnswer((_) async => tProductModelByCategoryList);
+
+      // act
+      final result = await repository.getProductsByCategory(tCategoryModel2.id);
+      // assert
+      verify(mockProductRemoteDataSource
+          .getProductsByCategory(tCategoryModel2.id));
       expect(result, equals(Right(tProductModelByCategoryList)));
     });
 

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
@@ -43,15 +44,21 @@ class ProductCardWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: AppLayout.getHeight(150),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Styles.primaryColor,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(product.imageURL),
+            CachedNetworkImage(
+              imageUrl: product.imageURL,
+              imageBuilder: (context, imageProvider) => Container(
+                height: AppLayout.getHeight(150),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Styles.primaryColor,
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
                 ),
+              ),
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
               ),
             ),
             const Gap(5),

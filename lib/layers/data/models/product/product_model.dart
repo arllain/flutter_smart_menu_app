@@ -36,7 +36,7 @@ class ProductModel extends ProductEntity {
         name: json['name'],
         description: json['description'],
         price: json['price'],
-        category: CategoryModel.fromJson(json['category']),
+        category: CategoryModel.fromSheredPrefencesJson(json['category']),
         imageURL: json['imageURL'],
         dateCreated: DateTime.tryParse(json['dateCreated']) as DateTime);
   }

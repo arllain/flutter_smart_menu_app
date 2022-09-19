@@ -2,6 +2,7 @@ import 'package:smart_menu_app/core/error/exceptions.dart';
 import 'package:smart_menu_app/core/network/network_info.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/local/product_local_datasource.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/remote/product_remote_datasource.dart';
+import 'package:smart_menu_app/layers/data/models/product/product_model.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
@@ -43,9 +44,15 @@ class ProductRepositoryImp implements ProductRepository {
   Future<Either<Failure, List<ProductEntity>>> getProductsByCategory(
       int id) async {
     if (await networkInfo.isConnected) {
+      List<ProductModel> remoteProductList = [];
       try {
-        final remoteProductList =
-            await productRemoteDataSource.getProductsByCategory(id);
+        if (id == 1) {
+          remoteProductList = await productRemoteDataSource.getAllProducts();
+          productLocalDataSource.cacheProductList(remoteProductList);
+        } else {
+          remoteProductList =
+              await productRemoteDataSource.getProductsByCategory(id);
+        }
         return Right(remoteProductList);
       } on ServerException {
         return Left(ServerFailure());
