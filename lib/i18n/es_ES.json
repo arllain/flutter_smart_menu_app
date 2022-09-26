@@ -1,5 +1,8 @@
 {
   "app-title": "Menú inteligente",  
   "choose-the-best-for-you":"Elige lo mejor para ti",
-  "search": "búsqueda"
+  "search": "búsqueda",
+  "cart": "Mi Carrito",
+  "delete": "Eliminar"
+
 }

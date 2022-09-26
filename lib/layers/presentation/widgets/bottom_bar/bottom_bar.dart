@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:smart_menu_app/layers/presentation/pages/cart_page/cart_page.dart';
 import 'package:smart_menu_app/layers/presentation/pages/home/home_page.dart';
 
 class BottomBar extends StatefulWidget {
@@ -13,7 +14,7 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
-    const Text("Cart"),
+    CartPage(),
     const Text("Profile"),
   ];
 

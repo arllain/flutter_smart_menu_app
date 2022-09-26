@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/pages/product/product_view_page/product_view_pgage.dart';
@@ -85,7 +86,7 @@ class ProductCardWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 onPressed: () {
-                  print('${product.id} - ${product.name}');
+                  print('added to cart ${product.id} - ${product.name}');
                 },
                 padding: const EdgeInsets.all(5),
                 child: Center(
