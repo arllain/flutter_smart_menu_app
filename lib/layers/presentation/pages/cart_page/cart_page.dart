@@ -72,7 +72,7 @@ class CartPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 height: AppLayout.getScreenHeight() * 0.56,
-                child: !cartItems.isNotEmpty
+                child: cartItems.isNotEmpty
                     ? CartItemsWidget(cartItems: cartItems)
                     : Center(
                         child: Image.asset(
