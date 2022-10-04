@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
+import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/product/product_view_page/product_view_pgage.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
@@ -86,7 +87,9 @@ class ProductCardWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 onPressed: () {
-                  print('added to cart ${product.id} - ${product.name}');
+                  context
+                      .read<CartBloc>()
+                      .add(UpdateCartEvent(product: product, isAdd: true));
                 },
                 padding: const EdgeInsets.all(5),
                 child: Center(

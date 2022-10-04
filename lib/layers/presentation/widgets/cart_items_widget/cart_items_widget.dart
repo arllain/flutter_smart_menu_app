@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:localization/localization.dart';
+import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/product/product_view_page/product_view_pgage.dart';
 
 class CartItemsWidget extends StatelessWidget {
@@ -37,7 +39,10 @@ class CartItemsWidget extends StatelessWidget {
               motion: const BehindMotion(),
               children: [
                 SlidableAction(
-                  onPressed: doNothing,
+                  onPressed: (context) {
+                    context.read<CartBloc>().add(UpdateCartEvent(
+                        product: cartItems[index], isAdd: false));
+                  },
                   backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
                   icon: Icons.delete,

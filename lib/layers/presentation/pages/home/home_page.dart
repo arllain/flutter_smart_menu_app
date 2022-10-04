@@ -150,20 +150,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Styles.bgColor,
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                getIt<CategoryBloc>()..add(GetAllCategoriesEvent()),
-          ),
-          BlocProvider(
-            create: (context) => getIt<ProductsByCategoryBloc>()
-              ..add(
-                  GetProductsByCategoryEvent(idSelected: 1, categoryName: '')),
-          ),
-        ],
-        child: const HomeLayout(),
-      ),
+      body: const HomeLayout(),
     );
   }
 }

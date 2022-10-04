@@ -17,6 +17,7 @@ import 'package:smart_menu_app/layers/domain/repositories/category/category_repo
 import 'package:smart_menu_app/layers/domain/repositories/product/product_repository.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/product/get_products_by_category/get_products_by_category_usecase.dart';
+import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/category_widget/bloc/category_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/product/product_by_category_widget/bloc/products_by_category_bloc.dart';
 
@@ -66,6 +67,11 @@ Future<void> init() async {
       () => ProductLocalDataSourceImpl(sharedPreferences: getIt()));
   getIt.registerLazySingleton<ProductRemoteDataSource>(
       () => ProductRemoteDataSourceImp(client: getIt()));
+
+  //! Cart
+  // Bloc
+  getIt.registerLazySingleton(() => CartBloc());
+  getIt.registerLazySingleton(() => GetCartList());
 
   //! Core
   getIt.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(getIt()));
