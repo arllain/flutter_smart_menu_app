@@ -10,27 +10,26 @@ extension CartStatusX on CartStatus {
 }
 
 class CartState extends Equatable {
-  final List<ProductEntity> products;
+  final Map<ProductEntity, int> cartList;
   final CartStatus status;
   final String message;
 
   const CartState(
-      {List<ProductEntity>? products,
+      {Map<ProductEntity, int>? cartList,
       this.status = CartStatus.initial,
-      String message = ''})
-      : products = products ?? const [],
-        message = message;
+      this.message = ''})
+      : cartList = cartList ?? const {};
 
   @override
-  List<Object> get props => [products, status, message];
+  List<Object> get props => [cartList, status, message];
 
   CartState copyWith({
-    List<ProductEntity>? products,
+    Map<ProductEntity, int>? cartList,
     CartStatus? status,
     String? message,
   }) {
     return CartState(
-        products: products ?? this.products,
+        cartList: cartList,
         status: status ?? this.status,
         message: message ?? this.message);
   }

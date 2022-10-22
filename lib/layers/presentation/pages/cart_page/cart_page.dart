@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,11 +8,10 @@ import 'package:smart_menu_app/layers/presentation/widgets/cart_items_widget/car
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
 
 class CartPage extends StatelessWidget {
-  late List<dynamic> cartItems = [];
-  int totalPrice = 0;
-  CartPage({
-    super.key,
-  });
+  final int totalPrice = 0;
+  const CartPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,6 @@ class CartPage extends StatelessWidget {
             ),
           );
         } else if (state.status.isSuccess) {
-          cartItems = state.products;
           return SingleChildScrollView(
             child: SizedBox(
               height: 600,
@@ -46,9 +43,9 @@ class CartPage extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    height: AppLayout.getScreenHeight() * 0.56,
-                    child: cartItems.isNotEmpty
-                        ? CartItemsWidget(cartItems: cartItems)
+                    height: AppLayout.getScreenHeight() * 0.50,
+                    child: state.cartList.isNotEmpty
+                        ? CartItemsWidget(cart: state.cartList)
                         : Center(
                             child: Image.asset(
                               'assets/images/empty-cart.png',
