@@ -15,6 +15,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<UpdateCartEvent>((event, emit) {
       Map<ProductEntity, int> cart =
           Map<ProductEntity, int>.from((state.cartList));
+
       if (event.isAdd) {
         if (cart[event.product] == null) {
           cart.addAll({event.product: 0});
@@ -27,6 +28,15 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           cart[event.product] = cart[event.product]! - 1;
         }
       }
+      emit(state.copyWith(status: CartStatus.loading));
+      emit(state.copyWith(status: CartStatus.success, cartList: cart));
+    });
+
+    on<DeleteProductsEvent>((event, emit) {
+      Map<ProductEntity, int> cart =
+          Map<ProductEntity, int>.from((state.cartList));
+      cart.remove(event.product);
+
       emit(state.copyWith(status: CartStatus.loading));
       emit(state.copyWith(status: CartStatus.success, cartList: cart));
     });

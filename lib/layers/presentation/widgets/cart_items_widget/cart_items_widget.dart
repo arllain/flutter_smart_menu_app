@@ -45,7 +45,7 @@ class CartItemsWidget extends StatelessWidget {
                     onPressed: (context) {
                       context
                           .read<CartBloc>()
-                          .add(UpdateCartEvent(product: product, isAdd: false));
+                          .add(DeleteProductsEvent(product: product));
                     },
                     backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
@@ -122,7 +122,10 @@ class CartItemsWidget extends StatelessWidget {
                           MaterialButton(
                             minWidth: 10,
                             padding: const EdgeInsets.all(0),
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<CartBloc>().add(UpdateCartEvent(
+                                  product: product, isAdd: false));
+                            },
                             shape: const CircleBorder(),
                             child: Icon(
                               Icons.remove_circle_outline,
@@ -133,7 +136,8 @@ class CartItemsWidget extends StatelessWidget {
                           Center(
                             child: Text(
                               //cartItemCount[index].toString(),
-                              3.toString(),
+                              //3.toString(),
+                              cart.values.elementAt(index).toString(),
                               style: TextStyle(
                                   fontSize: 20, color: Colors.grey.shade800),
                             ),
@@ -142,7 +146,10 @@ class CartItemsWidget extends StatelessWidget {
                             padding: const EdgeInsets.all(0),
                             minWidth: 10,
                             splashColor: Colors.yellow[700],
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<CartBloc>().add(UpdateCartEvent(
+                                  product: product, isAdd: true));
+                            },
                             shape: const CircleBorder(),
                             child: const Icon(
                               Icons.add_circle,

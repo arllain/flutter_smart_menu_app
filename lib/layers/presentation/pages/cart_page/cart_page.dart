@@ -1,15 +1,20 @@
+import 'dart:math';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:localization/localization.dart';
+import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/cart_items_widget/cart_items_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
 
 class CartPage extends StatelessWidget {
-  final int totalPrice = 0;
-  const CartPage({
+  double totalPrice = 0;
+  String totalPriceFormatted = '0.00';
+  CartPage({
     Key? key,
   }) : super(key: key);
 
@@ -35,6 +40,7 @@ class CartPage extends StatelessWidget {
             ),
           );
         } else if (state.status.isSuccess) {
+          sumTotal(state.cartList);
           return SingleChildScrollView(
             child: SizedBox(
               height: 600,
@@ -67,7 +73,7 @@ class CartPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text('Total', style: TextStyle(fontSize: 20)),
-                        Text('\$${totalPrice + 5.99}',
+                        Text(totalPriceFormatted,
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold))
                       ],
@@ -104,5 +110,15 @@ class CartPage extends StatelessWidget {
         }
       }),
     );
+  }
+
+  sumTotal(Map<ProductEntity, int> cartList) {
+    totalPrice = 0.00;
+    for (var element in cartList.entries) {
+      totalPrice = element.key.price * element.value + totalPrice;
+    }
+    var form = NumberFormat.currency(
+        locale: 'locale'.i18n(), symbol: 'currency_symbol'.i18n());
+    totalPriceFormatted = form.format(totalPrice);
   }
 }

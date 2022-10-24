@@ -3,6 +3,8 @@
   "choose-the-best-for-you":"Elige lo mejor para ti",
   "search": "búsqueda",
   "cart": "Mi Carrito",
-  "delete": "Eliminar"
+  "delete": "Eliminar",
+  "locale": "es_ES",
+  "currency_symbol": "€" 
 
 }
