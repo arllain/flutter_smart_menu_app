@@ -43,7 +43,7 @@ class CartPage extends StatelessWidget {
           sumTotal(state.cartList);
           return SingleChildScrollView(
             child: SizedBox(
-              height: 600,
+              height: AppLayout.getScreenHeight(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -82,24 +82,42 @@ class CartPage extends StatelessWidget {
                   const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: MaterialButton(
-                      onPressed: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => PaymentPage()));
-                      },
-                      height: 50,
-                      elevation: 0,
-                      splashColor: Colors.yellow[700],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      color: Colors.yellow[800],
-                      child: const Center(
-                        child: Text(
-                          "Checkout",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                    ),
+                    child: state.cartList.isNotEmpty
+                        ? MaterialButton(
+                            onPressed: () {
+                              // Navigator.push(context,
+                              //     MaterialPageRoute(builder: (context) => PaymentPage()));
+                            },
+                            height: 50,
+                            elevation: 0,
+                            splashColor: Colors.yellow[700],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            color: Colors.yellow[800],
+                            child: Center(
+                              child: Text(
+                                'checkout'.i18n(),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 18),
+                              ),
+                            ),
+                          )
+                        : MaterialButton(
+                            onPressed: () {},
+                            height: 50,
+                            elevation: 0,
+                            splashColor: Colors.grey[300],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            color: Colors.grey[300],
+                            child: Center(
+                              child: Text(
+                                'checkout'.i18n(),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 18),
+                              ),
+                            ),
+                          ),
                   )
                 ],
               ),

@@ -5,6 +5,6 @@
   "cart": "Mi Carrito",
   "delete": "Eliminar",
   "locale": "es_ES",
-  "currency_symbol": "€" 
-
+  "currency_symbol": "€",
+  "checkout": "Checkout"
 }

@@ -5,6 +5,6 @@
   "cart": "Meu Carrinho",
   "delete": "Deletar",
   "locale": "pt_BR",
-  "currency_symbol": "R$" 
-
+  "currency_symbol": "R$",
+  "checkout": "Fechar pedido"
 }
