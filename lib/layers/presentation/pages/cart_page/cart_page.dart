@@ -25,7 +25,7 @@ class CartPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text(
-          'cart'.i18n(),
+          'order'.i18n(),
           style: const TextStyle(color: Colors.black),
         ),
       ),
