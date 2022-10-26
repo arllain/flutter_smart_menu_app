@@ -6,5 +6,8 @@
   "delete": "Deletar",
   "locale": "pt_BR",
   "currency_symbol": "R$",
-  "checkout": "Fechar pedido"
+  "checkout": "Fechar pedido",
+  "payment": "Pagamento",
+  "payment_method": "Método de pagamento",
+  "add_new_card": "Adicionar novo cartão"
 }

@@ -6,5 +6,9 @@
   "delete": "Delete",
   "locale": "en_US",
   "currency_symbol": "$",
-  "checkout": "Checkout"
+  "checkout": "Checkout",
+  "payment": "Payment",
+  "payment_method": "Payment method",
+  "add_new_card": "Add new card"
+
 }

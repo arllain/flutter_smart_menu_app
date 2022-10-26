@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/pages/payment_page/payment_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/cart_items_widget/cart_items_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
@@ -85,8 +86,11 @@ class CartPage extends StatelessWidget {
                     child: state.cartList.isNotEmpty
                         ? MaterialButton(
                             onPressed: () {
-                              // Navigator.push(context,
-                              //     MaterialPageRoute(builder: (context) => PaymentPage()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PaymentPage()));
                             },
                             height: 50,
                             elevation: 0,

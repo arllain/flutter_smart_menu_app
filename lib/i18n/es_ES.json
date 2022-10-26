@@ -6,5 +6,8 @@
   "delete": "Eliminar",
   "locale": "es_ES",
   "currency_symbol": "€",
-  "checkout": "Checkout"
+  "checkout": "Checkout",
+  "payment": "Pago",
+  "payment_method": "Método de pago",
+  "add_new_card": "Agregar nueva tarjeta"
 }
