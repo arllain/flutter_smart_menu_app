@@ -20,7 +20,7 @@ class PaymentSuccessPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.all(20.0),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
