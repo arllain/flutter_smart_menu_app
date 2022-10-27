@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:smart_menu_app/layers/presentation/pages/payment_success_page/payment_success_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
 class PaymentPage extends StatelessWidget {
@@ -77,9 +78,10 @@ class PaymentPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Image.network(
-                                'https://img.icons8.com/color/2x/mastercard-logo.png',
-                                height: 50),
+                            Image.asset(
+                              'assets/images/mastercard-logo.png',
+                              height: 50,
+                            )
                           ],
                         ),
                         Column(
@@ -207,7 +209,13 @@ class PaymentPage extends StatelessWidget {
                     height: 20,
                   ),
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PaymentSuccessPage(),
+                          ));
+                    },
                     height: 50,
                     elevation: 0,
                     splashColor: Colors.yellow[800],
