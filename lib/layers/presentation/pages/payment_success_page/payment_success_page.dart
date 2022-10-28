@@ -51,7 +51,7 @@ class PaymentSuccessPage extends StatelessWidget {
               splashColor: Colors.yellow[800],
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
-              color: Colors.yellow[900],
+              color: Colors.yellow[800],
               child: Center(
                 child: Text(
                   'Continue',
