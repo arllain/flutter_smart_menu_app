@@ -9,6 +9,8 @@
   "checkout": "Checkout",
   "payment": "Payment",
   "payment_method": "Payment method",
-  "add_new_card": "Add new card"
+  "add_new_card": "Add new card",
+  "add_to_cart": "Add to cart",
+  "add_to_order": "Add to order"
 
 }

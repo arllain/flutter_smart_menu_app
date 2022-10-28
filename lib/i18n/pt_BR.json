@@ -9,5 +9,7 @@
   "checkout": "Fechar pedido",
   "payment": "Pagamento",
   "payment_method": "Método de pagamento",
-  "add_new_card": "Adicionar novo cartão"
+  "add_new_card": "Adicionar novo cartão",
+  "add_to_cart": "Adicionar ao carrinho",
+  "add_to_order": "Adicionar ao pedido"
 }
