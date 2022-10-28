@@ -9,6 +9,7 @@ import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dar
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/payment_page/payment_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/cart_items_widget/cart_items_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
 
@@ -80,7 +81,7 @@ class CartPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 5),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: state.cartList.isNotEmpty
@@ -94,10 +95,10 @@ class CartPage extends StatelessWidget {
                             },
                             height: 50,
                             elevation: 0,
-                            splashColor: Colors.yellow[700],
+                            splashColor: Styles.buttonSplahColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
-                            color: Colors.yellow[800],
+                            color: Styles.buttonColor,
                             child: Center(
                               child: Text(
                                 'checkout'.i18n(),

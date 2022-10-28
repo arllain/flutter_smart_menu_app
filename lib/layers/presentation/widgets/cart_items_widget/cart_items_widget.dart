@@ -135,8 +135,6 @@ class CartItemsWidget extends StatelessWidget {
                           ),
                           Center(
                             child: Text(
-                              //cartItemCount[index].toString(),
-                              //3.toString(),
                               cart.values.elementAt(index).toString(),
                               style: TextStyle(
                                   fontSize: 20, color: Colors.grey.shade800),
@@ -151,8 +149,9 @@ class CartItemsWidget extends StatelessWidget {
                                   product: product, isAdd: true));
                             },
                             shape: const CircleBorder(),
-                            child: const Icon(
+                            child: Icon(
                               Icons.add_circle,
+                              color: Colors.orange.shade600,
                               size: 30,
                             ),
                           ),
