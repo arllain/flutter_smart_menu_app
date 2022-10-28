@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_menu_app/layers/presentation/pages/scan_qrcode_page/scan_qrcode_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
-class PaymentSuccessPage extends StatelessWidget {
-  const PaymentSuccessPage({super.key});
+class ScanQrCodePage extends StatelessWidget {
+  const ScanQrCodePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,41 +26,56 @@ class PaymentSuccessPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Image(
-              image: AssetImage('assets/images/wallet.png'),
-              width: 150,
-            ),
-            const SizedBox(height: 20),
             const Text(
-              'Payment Success!',
-              style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+              'The last step to get your order',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
+            const Image(
+              image: AssetImage('assets/images/qr-code-scan.png'),
+              width: 220,
+            ),
+            const SizedBox(height: 40),
             Text(
-              'Thank you for your payment!',
+              'Please scan the QR Code when',
               style: Styles.textStyle
-                  .copyWith(color: Styles.greyColor, fontSize: 12),
+                  .copyWith(color: Styles.greyColor, fontSize: 15),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              'your order arrives.',
+              style: Styles.textStyle
+                  .copyWith(color: Styles.greyColor, fontSize: 15),
             ),
             const SizedBox(
-              height: 180.0,
+              height: 70.0,
             ),
             MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScanQrCodePage(),
-                    ));
-              },
+              onPressed: () {},
               height: 50,
               elevation: 0,
-              splashColor: Colors.yellow[800],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              color: Colors.yellow[800],
               child: Center(
                 child: Text(
-                  'Continue',
+                  'Scan later',
+                  style: Styles.headLineStyle2
+                      .copyWith(color: Styles.greyColor, fontSize: 18),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            MaterialButton(
+              onPressed: () {},
+              height: 50,
+              elevation: 0,
+              splashColor: Styles.buttonSplahColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              color: Styles.buttonColor,
+              child: Center(
+                child: Text(
+                  'Scan now',
                   style: Styles.headLineStyle2
                       .copyWith(color: Colors.white, fontSize: 18),
                 ),

@@ -16,6 +16,8 @@ class Styles {
   static Color yellowColor = const Color(0xFFFFB01D);
   static Color blackColor2 = const Color(0xFF32324D);
   static Color darkGreyColor = const Color(0xFF666687);
+  static Color buttonColor = const Color(0xFF615793);
+  static Color buttonSplahColor = const Color(0xFF8981AE);
 
   static TextStyle textStyle =
       TextStyle(fontSize: 16, color: textColor, fontWeight: FontWeight.w500);
