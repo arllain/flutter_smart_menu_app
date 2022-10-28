@@ -64,9 +64,9 @@ class PaymentPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         gradient: LinearGradient(
                           colors: [
-                            Colors.yellow.shade800,
-                            Colors.orange,
-                            Colors.yellow.shade900,
+                            Colors.deepPurple.shade800,
+                            Colors.deepPurple,
+                            Colors.deepPurple.shade900,
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomCenter,
