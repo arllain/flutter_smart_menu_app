@@ -11,6 +11,10 @@
   "payment_method": "Payment method",
   "add_new_card": "Add new card",
   "add_to_cart": "Add to cart",
-  "add_to_order": "Add to order"
-
+  "add_to_order": "Add to order",
+  "Payment": "Payment",
+  "total_items": "Items Total",
+  "tax": "Tax",
+  "total_price": "Total price",
+  "pay": "Pay"
 }

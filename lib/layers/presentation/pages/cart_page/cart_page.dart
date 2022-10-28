@@ -10,12 +10,12 @@ import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_blo
 import 'package:smart_menu_app/layers/presentation/pages/payment_page/payment_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/cart_items_widget/cart_items_widget.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
 
 class CartPage extends StatelessWidget {
   double totalPrice = 0;
-  String totalPriceFormatted = '0.00';
   CartPage({
     Key? key,
   }) : super(key: key);
@@ -75,7 +75,7 @@ class CartPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text('Total', style: TextStyle(fontSize: 20)),
-                        Text(totalPriceFormatted,
+                        Text(AppUtils.formatCurrency(totalPrice),
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold))
                       ],
@@ -88,10 +88,13 @@ class CartPage extends StatelessWidget {
                         ? MaterialButton(
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const PaymentPage()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PaymentPage(
+                                    totalItems: totalPrice,
+                                  ),
+                                ),
+                              );
                             },
                             height: 50,
                             elevation: 0,
@@ -140,8 +143,5 @@ class CartPage extends StatelessWidget {
     for (var element in cartList.entries) {
       totalPrice = element.key.price * element.value + totalPrice;
     }
-    var form = NumberFormat.currency(
-        locale: 'locale'.i18n(), symbol: 'currency_symbol'.i18n());
-    totalPriceFormatted = form.format(totalPrice);
   }
 }

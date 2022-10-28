@@ -11,5 +11,10 @@
   "payment_method": "Método de pagamento",
   "add_new_card": "Adicionar novo cartão",
   "add_to_cart": "Adicionar ao carrinho",
-  "add_to_order": "Adicionar ao pedido"
+  "add_to_order": "Adicionar ao pedido",
+  "Payment": "Pagamento",
+  "total_items": "Total dos itens",
+  "tax": "Taxa",
+  "total_price": "Preço total",
+  "pay": "Pagar"
 }

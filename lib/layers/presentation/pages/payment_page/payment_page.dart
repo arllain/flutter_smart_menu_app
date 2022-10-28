@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/presentation/pages/payment_success_page/payment_success_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
 
 class PaymentPage extends StatelessWidget {
-  const PaymentPage({super.key});
+  final double totalItems;
+  const PaymentPage({super.key, required this.totalItems});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,9 @@ class PaymentPage extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: const Text(
-          'Payment',
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          'payment'.i18n(),
+          style: const TextStyle(color: Colors.black),
         ),
       ),
       body: Column(
@@ -135,14 +137,14 @@ class PaymentPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Items Total',
+                              'total_items'.i18n(),
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                   color: Styles.darkGreyColor),
                             ),
                             Text(
-                              "45.00",
+                              AppUtils.formatCurrency(totalItems),
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
@@ -157,14 +159,15 @@ class PaymentPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Tax",
+                              'tax'.i18n(),
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                   color: Styles.darkGreyColor),
                             ),
                             Text(
-                              "4.50",
+                              AppUtils.formatCurrency(
+                                  AppUtils.calculateTax(totalItems, 10)),
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
@@ -187,14 +190,15 @@ class PaymentPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Total price",
+                              'total_price'.i18n(),
                               style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   color: Styles.darkGreyColor),
                             ),
                             Text(
-                              "49.50",
+                              AppUtils.formatCurrency(
+                                  AppUtils.calculateTotal(totalItems, 10)),
                               style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -224,7 +228,9 @@ class PaymentPage extends StatelessWidget {
                     color: Styles.buttonColor,
                     child: Center(
                       child: Text(
-                        'Pay  \$49.50',
+                        '${'pay'.i18n()}   ' +
+                            AppUtils.formatCurrency(
+                                AppUtils.calculateTotal(totalItems, 10)),
                         style: Styles.headLineStyle2
                             .copyWith(color: Colors.white, fontSize: 18),
                       ),
