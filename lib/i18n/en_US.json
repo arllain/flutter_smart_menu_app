@@ -16,5 +16,8 @@
   "total_items": "Items Total",
   "tax": "Tax",
   "total_price": "Total price",
-  "pay": "Pay"
+  "pay": "Pay",
+  "payment_success" : "Payment Success!",
+  "thank_you_for_your_payment" : "Thank you for your payment!",
+  "continue": "Continue"
 }

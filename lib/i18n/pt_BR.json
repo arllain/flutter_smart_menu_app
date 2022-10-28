@@ -16,5 +16,9 @@
   "total_items": "Total dos itens",
   "tax": "Taxa",
   "total_price": "Preço total",
-  "pay": "Pagar"
+  "pay": "Pagar",
+  "payment_success" : "Pago com sucesso!",
+  "thank_you_for_your_payment" : "Obrigado pelo seu pagamento!",
+  "continue": "Continuar"
+
 }
