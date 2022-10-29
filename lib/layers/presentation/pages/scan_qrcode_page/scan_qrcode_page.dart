@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/pages/home/home_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:localization/localization.dart';
+import 'package:smart_menu_app/main.dart';
 
 class ScanQrCodePage extends StatelessWidget {
   const ScanQrCodePage({super.key});
@@ -8,10 +12,6 @@ class ScanQrCodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
         width: double.infinity,
@@ -19,6 +19,7 @@ class ScanQrCodePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 60),
             Text(
               'last_step_to_get_your_order'.i18n(),
               style:
@@ -45,7 +46,14 @@ class ScanQrCodePage extends StatelessWidget {
               height: 70.0,
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<HomePage>(
+                    builder: ((context) => const MyApp()),
+                  ),
+                );
+              },
               height: 50,
               elevation: 0,
               child: Center(
