@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/home/home_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:localization/localization.dart';
