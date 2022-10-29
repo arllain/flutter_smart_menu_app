@@ -24,5 +24,10 @@
   "please_scan_qr_code_when" : "Please scan the QR Code when",
   "your_order_arrives":"your order arrives.",
   "scan_later": "Scan later",
-  "scan_now": "Scan now"
+  "scan_now": "Scan now",
+  "All": "All",
+  "Drinks": "Drinks",
+  "Food": "Food",
+  "Desserts": "Desserts",
+  "Salads": "Salads"
 }

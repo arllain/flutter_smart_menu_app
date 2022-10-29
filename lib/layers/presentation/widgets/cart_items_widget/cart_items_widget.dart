@@ -90,7 +90,7 @@ class CartItemsWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                product.category.name,
+                                product.category.name.i18n(),
                                 style: TextStyle(
                                   color: Colors.orange.shade400,
                                   fontSize: 14,

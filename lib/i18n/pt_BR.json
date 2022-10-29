@@ -24,5 +24,11 @@
   "please_scan_qr_code_when" : "Por favor escanear o QR Code quando",
   "your_order_arrives":"seu pedido chegar.",
   "scan_later": "Scanear depois",
-  "scan_now": "Scanear agora"
+  "scan_now": "Scanear agora",
+  "All": "Todos",
+  "Drinks": "Bebidas",
+  "Food": "Comidas",
+  "Desserts": "Sobremesas",
+  "Salads": "Saladas"
+
 }

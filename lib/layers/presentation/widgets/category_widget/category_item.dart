@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
@@ -38,7 +39,7 @@ class CategoryItem extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    category.name,
+                    category.name.i18n(),
                     style: state
                         ? Styles.tabButtonS
                         : Styles.tabButtonU.copyWith(
