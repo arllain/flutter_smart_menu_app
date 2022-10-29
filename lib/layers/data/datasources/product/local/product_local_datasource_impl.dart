@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dartz/dartz_unsafe.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_menu_app/core/error/exceptions.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/local/product_local_datasource.dart';

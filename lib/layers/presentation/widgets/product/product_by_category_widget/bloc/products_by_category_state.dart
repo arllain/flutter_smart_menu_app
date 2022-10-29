@@ -18,11 +18,9 @@ class ProductsByCategoryState extends Equatable {
   const ProductsByCategoryState({
     List<ProductEntity>? products,
     this.status = ProductStatus.initial,
-    String categoryName = '',
-    String message = '',
-  })  : products = products ?? const [],
-        categoryName = categoryName,
-        message = message;
+    this.categoryName = '',
+    this.message = '',
+  }) : products = products ?? const [];
 
   @override
   List<Object> get props => [products, status, categoryName];

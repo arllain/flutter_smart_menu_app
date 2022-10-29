@@ -27,58 +27,6 @@ class HomeLayout extends StatelessWidget {
               const CategoriesWidget(),
               Gap(AppLayout.getHeight(15)),
               const ProductsByCategoryWidget(),
-              // Row(
-              //   children: [
-              //     Text('Most Popular',
-              //         style: Styles.headLineStyle3.copyWith(
-              //           fontWeight: FontWeight.w600,
-              //           color: Styles.darkGreyColor,
-              //           shadows: [
-              //             Shadow(
-              //                 color: Styles.black.withOpacity(0.2),
-              //                 offset: const Offset(5, 5),
-              //                 blurRadius: 25)
-              //           ],
-              //         )),
-              //   ],
-              // ),
-              // Gap(AppLayout.getHeight(5)),
-              // SingleChildScrollView(
-              //   scrollDirection: Axis.horizontal,
-              //   padding: const EdgeInsets.only(left: 7, bottom: 15),
-              //   child: Row(
-              //     children: productList
-              //         .map((singleProduct) =>
-              //             ProductBoxCard(product: singleProduct))
-              //         .toList(),
-              //   ),
-              // ),
-              // Gap(AppLayout.getHeight(10)),
-              // Row(
-              //   children: [
-              //     Text('Drink',
-              //         style: Styles.headLineStyle3.copyWith(
-              //           fontWeight: FontWeight.w600,
-              //           color: Styles.darkGreyColor,
-              //           shadows: [
-              //             Shadow(
-              //                 color: Styles.black.withOpacity(0.2),
-              //                 offset: const Offset(5, 5),
-              //                 blurRadius: 25)
-              //           ],
-              //         )),
-              //   ],
-              // ),
-              // SingleChildScrollView(
-              //   scrollDirection: Axis.horizontal,
-              //   padding: const EdgeInsets.only(left: 20, bottom: 15),
-              //   child: Row(
-              //     children: productMostPopularList
-              //         .map((singleProduct) =>
-              //             ProductBoxCard(product: singleProduct))
-              //         .toList(),
-              //   ),
-              // ),
             ],
           ),
         )

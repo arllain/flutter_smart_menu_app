@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
-import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 

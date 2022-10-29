@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_menu_app/core/enums/status/status.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 

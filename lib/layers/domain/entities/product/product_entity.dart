@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:smart_menu_app/core/enums/status/status.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 
 class ProductEntity extends Equatable {

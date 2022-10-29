@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:smart_menu_app/core/usecases/usecase.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/repositories/category/category_repository.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';

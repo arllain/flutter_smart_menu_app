@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';

@@ -19,11 +19,9 @@ class CategoryState extends Equatable {
   const CategoryState({
     this.status = CategoryStatus.initial,
     List<CategoryEntity>? categories,
-    int idSelected = 1,
-    String message = '',
-  })  : categories = categories ?? const [],
-        idSelected = idSelected,
-        message = message;
+    this.idSelected = 1,
+    this.message = '',
+  }) : categories = categories ?? const [];
 
   @override
   List<Object?> get props => [status, categories, idSelected];
