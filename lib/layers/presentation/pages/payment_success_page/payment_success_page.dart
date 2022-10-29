@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:smart_menu_app/layers/presentation/pages/scan_qrcode_page/scan_qrcode_page.dart';
+import 'package:smart_menu_app/layers/presentation/pages/qrcode_page/qrcode_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
 class PaymentSuccessPage extends StatelessWidget {
@@ -41,7 +41,7 @@ class PaymentSuccessPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ScanQrCodePage(),
+                      builder: (context) => const QrCodePage(),
                     ));
               },
               height: 50,
