@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_menu_app/core/enums/status/status.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 
@@ -18,7 +17,7 @@ void main() {
       description: 'Product description',
       price: 100.00,
       category: categoryEntity,
-      status: Status.active,
+      imageURL: 'http://images',
       dateCreated: dateCreated,
     );
     expect(productEntity, isNotNull);
@@ -38,7 +37,7 @@ void main() {
       description: 'Product description',
       price: 100.00,
       category: categoryEntity,
-      status: Status.active,
+      imageURL: 'http://images',
       dateCreated: dateCreated,
     );
     expect(productEntity.category, isNotNull);
