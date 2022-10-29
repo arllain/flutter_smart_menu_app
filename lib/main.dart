@@ -23,38 +23,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'app-title'.i18n(),
-      supportedLocales: const [
-        Locale('pt', 'BR'),
-        Locale('en', 'US'),
-        Locale('es', 'ES'),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<CategoryBloc>()..add(GetAllCategoriesEvent()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ProductsByCategoryBloc>()
+            ..add(GetProductsByCategoryEvent(idSelected: 1, categoryName: '')),
+        ),
+        BlocProvider(
+            create: (context) => getIt<CartBloc>()..add(GetCartList())),
       ],
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        LocalJsonLocalization.delegate,
-      ],
-      theme: ThemeData(
-        primaryColor: primary,
-      ),
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                getIt<CategoryBloc>()..add(GetAllCategoriesEvent()),
-          ),
-          BlocProvider(
-            create: (context) => getIt<ProductsByCategoryBloc>()
-              ..add(
-                  GetProductsByCategoryEvent(idSelected: 1, categoryName: '')),
-          ),
-          BlocProvider(
-              create: (context) => getIt<CartBloc>()..add(GetCartList())),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'app-title'.i18n(),
+        supportedLocales: const [
+          Locale('pt', 'BR'),
+          Locale('en', 'US'),
+          Locale('es', 'ES'),
         ],
-        child: const BottomBar(),
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          LocalJsonLocalization.delegate,
+        ],
+        theme: ThemeData(
+          primaryColor: primary,
+        ),
+        home: const BottomBar(),
       ),
     );
   }
