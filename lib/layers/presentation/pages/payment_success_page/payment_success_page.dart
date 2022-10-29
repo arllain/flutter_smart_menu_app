@@ -12,14 +12,6 @@ class PaymentSuccessPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          color: Colors.black,
-          icon: const Icon(Icons.arrow_back),
-          iconSize: 20.0,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
