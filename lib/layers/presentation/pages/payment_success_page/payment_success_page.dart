@@ -9,10 +9,6 @@ class PaymentSuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
         width: double.infinity,
@@ -20,6 +16,7 @@ class PaymentSuccessPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 60),
             const Image(
               image: AssetImage('assets/images/wallet.png'),
               width: 150,
