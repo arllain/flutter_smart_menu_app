@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_menu_app/layers/presentation/pages/home/home_page.dart';
+import 'package:smart_menu_app/layers/presentation/pages/scan_qrcode_page/scan_qrcode_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/main.dart';
@@ -66,7 +67,14 @@ class QrCodePage extends StatelessWidget {
               height: 10,
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ScanQrCodePage(),
+                  ),
+                );
+              },
               height: 50,
               elevation: 0,
               splashColor: Styles.buttonSplahColor,
