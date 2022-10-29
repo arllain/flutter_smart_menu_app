@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
+import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
 
 class ProductViewPage extends StatelessWidget {
   final ProductEntity product;
@@ -114,10 +116,35 @@ class ProductViewPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Text(
-                            "\$ ${product.price}",
-                            style: const TextStyle(
-                                color: Colors.black, fontSize: 16),
+                          Column(
+                            children: [
+                              Text(
+                                AppUtils.formatCurrency(product.price),
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              MaterialButton(
+                                color: Styles.yellowColor,
+                                minWidth: 80,
+                                height: 15,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                onPressed: () {
+                                  context.read<CartBloc>().add(UpdateCartEvent(
+                                      product: product, isAdd: true));
+                                },
+                                padding: const EdgeInsets.all(5),
+                                child: Center(
+                                    child: Icon(
+                                  Icons.shopping_cart,
+                                  color: Styles.black,
+                                  size: 25,
+                                )),
+                              )
+                            ],
                           ),
                         ],
                       ),
@@ -131,26 +158,6 @@ class ProductViewPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      const SizedBox(height: 20),
-                      MaterialButton(
-                        onPressed: () {
-                          // context.read<CartBloc>().add(
-                          //     UpdateCartEvent(product: product, isAdd: true));
-                        },
-                        height: 50,
-                        elevation: 0,
-                        splashColor: Styles.buttonSplahColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Styles.buttonColor,
-                        child: Center(
-                          child: Text(
-                            "add_to_order".i18n(),
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 18),
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ),
