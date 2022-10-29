@@ -7,6 +7,7 @@ import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_blo
 import 'package:smart_menu_app/layers/presentation/pages/product/product_view_page/product_view_pgage.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
 
 class ProductCardWidget extends StatelessWidget {
   final ProductEntity product;
@@ -73,7 +74,7 @@ class ProductCardWidget extends StatelessWidget {
             const Gap(5),
             Center(
               child: Text(
-                '\$${product.price}',
+                AppUtils.formatCurrency(product.price),
                 style: Styles.productPriceStyle,
               ),
             ),

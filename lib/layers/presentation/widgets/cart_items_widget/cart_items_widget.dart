@@ -5,6 +5,7 @@ import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/product/product_view_page/product_view_pgage.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
 
 class CartItemsWidget extends StatelessWidget {
   final Map<ProductEntity, int> cart;
@@ -107,7 +108,7 @@ class CartItemsWidget extends StatelessWidget {
                               ),
                               const SizedBox(height: 15),
                               Text(
-                                '\$${product.price}',
+                                AppUtils.formatCurrency(product.price),
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.grey.shade800,
