@@ -19,5 +19,10 @@
   "pay": "Pagar",
   "payment_success" : "Pago exitoso!",
   "thank_you_for_your_payment" : "Gracias por tu pago!",
-  "continue": "Continuar"
+  "continue": "Continuar",
+  "last_step_to_get_your_order": "El último paso para conseguir tu pedido",
+  "please_scan_qr_code_when" : "Por favor escanea el QR Code cuando",
+  "your_order_arrives":"llega tu pedido.",
+  "scan_later": "Escanear más tarde",
+  "scan_now": "Escanear ahora"
 }

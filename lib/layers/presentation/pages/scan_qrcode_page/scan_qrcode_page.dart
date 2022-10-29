@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
+import 'package:localization/localization.dart';
 
 class ScanQrCodePage extends StatelessWidget {
   const ScanQrCodePage({super.key});
@@ -10,14 +11,6 @@ class ScanQrCodePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          color: Colors.black,
-          icon: const Icon(Icons.arrow_back),
-          iconSize: 20.0,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
@@ -26,9 +19,10 @@ class ScanQrCodePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'The last step to get your order',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            Text(
+              'last_step_to_get_your_order'.i18n(),
+              style:
+                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 40),
             const Image(
@@ -37,13 +31,13 @@ class ScanQrCodePage extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             Text(
-              'Please scan the QR Code when',
+              'please_scan_qr_code_when'.i18n(),
               style: Styles.textStyle
                   .copyWith(color: Styles.greyColor, fontSize: 15),
             ),
             const SizedBox(height: 5),
             Text(
-              'your order arrives.',
+              'your_order_arrives'.i18n(),
               style: Styles.textStyle
                   .copyWith(color: Styles.greyColor, fontSize: 15),
             ),
@@ -56,7 +50,7 @@ class ScanQrCodePage extends StatelessWidget {
               elevation: 0,
               child: Center(
                 child: Text(
-                  'Scan later',
+                  'scan_later'.i18n(),
                   style: Styles.headLineStyle2
                       .copyWith(color: Styles.greyColor, fontSize: 18),
                 ),
@@ -75,7 +69,7 @@ class ScanQrCodePage extends StatelessWidget {
               color: Styles.buttonColor,
               child: Center(
                 child: Text(
-                  'Scan now',
+                  'scan_now'.i18n(),
                   style: Styles.headLineStyle2
                       .copyWith(color: Colors.white, fontSize: 18),
                 ),
