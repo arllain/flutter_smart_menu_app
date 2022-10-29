@@ -228,9 +228,7 @@ class PaymentPage extends StatelessWidget {
                     color: Styles.buttonColor,
                     child: Center(
                       child: Text(
-                        '${'pay'.i18n()}   ' +
-                            AppUtils.formatCurrency(
-                                AppUtils.calculateTotal(totalItems, 10)),
+                        '${'pay'.i18n()} ${AppUtils.formatCurrency(AppUtils.calculateTotal(totalItems, 10))}',
                         style: Styles.headLineStyle2
                             .copyWith(color: Colors.white, fontSize: 18),
                       ),
