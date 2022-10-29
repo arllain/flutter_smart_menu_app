@@ -29,5 +29,9 @@
   "Drinks": "Drinks",
   "Food": "Food",
   "Desserts": "Desserts",
-  "Salads": "Salads"
+  "Salads": "Salads",
+  "qrCodeFailed": "Failed to get platform version",
+  "cancel": "Cancel",
+  "thanks": "Thank you for choosing us!",
+  "back_home": "Back to Home"
 }

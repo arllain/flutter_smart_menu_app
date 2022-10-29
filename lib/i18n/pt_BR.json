@@ -29,6 +29,10 @@
   "Drinks": "Bebidas",
   "Food": "Comidas",
   "Desserts": "Sobremesas",
-  "Salads": "Saladas"
+  "Salads": "Saladas",
+  "qrCodeFailed": "Falha ao obter a versão da plataforma",
+  "cancel": "Cancelar",
+  "thanks": "Obrigado por nos escolher!",
+  "back_home": "Início"
 
 }

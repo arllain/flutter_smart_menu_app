@@ -29,5 +29,9 @@
   "Drinks": "Tragos",
   "Food": "Alimento",
   "Desserts": "Postres",
-  "Salads": "Ensaladas"
+  "Salads": "Ensaladas",
+  "qrCodeFailed": "Error al obtener la versión de la plataforma",
+  "cancel": "Cancelar",
+  "thanks": "Gracias por elegirnos!",
+  "back_home": "Comienzo"
 }
