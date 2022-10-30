@@ -33,5 +33,16 @@
   "qrCodeFailed": "Error al obtener la versión de la plataforma",
   "cancel": "Cancelar",
   "thanks": "Gracias por elegirnos!",
-  "back_home": "Comienzo"
+  "back_home": "Comienzo",
+  "signup": "Inscribirse",
+  "signup_email": "Ingresa con Email",
+  "signup_google": "Ingresa con  Google",
+  "signup_facebook": "Ingresa con Facebook",
+  "login_email": "Iniciar sesión usando Email",
+  "get_started": "Empecemos",
+  "sign_or_login_msg": "Regístrese o inicie sesión para tener ",
+  "sign_or_login_msg_complement": "una experiencia  digital completa"
+
+
+
 }

@@ -33,5 +33,14 @@
   "qrCodeFailed": "Failed to get platform version",
   "cancel": "Cancel",
   "thanks": "Thank you for choosing us!",
-  "back_home": "Back to Home"
+  "back_home": "Back to Home",
+  "signup": "Sign Up",
+  "signup_email": "Sign up with Email",
+  "signup_google": "Sign up with Google",
+  "signup_facebook": "Sign up with Facebook",
+  "login_email": "Log In Using Email",
+  "get_started": "Let's Get Started",
+  "sign_or_login_msg": "Sign up or log in to have ",
+  "sign_or_login_msg_complement": "a full digital experience"
+
 }
