@@ -4,8 +4,8 @@ import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class LoginRegisterPage extends StatelessWidget {
+  const LoginRegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
