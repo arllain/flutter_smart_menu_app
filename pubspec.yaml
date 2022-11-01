@@ -41,6 +41,8 @@ dependencies:
   badges: ^2.0.3
   flutter_barcode_scanner: ^2.0.0
   flutter_signin_button: ^2.0.0
+  firebase_core: ^2.1.1
+  firebase_auth: ^4.1.0
 
 dev_dependencies:
   flutter_test:
