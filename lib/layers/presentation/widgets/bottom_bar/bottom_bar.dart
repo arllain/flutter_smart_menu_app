@@ -6,26 +6,30 @@ import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dar
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/cart_page.dart';
 import 'package:smart_menu_app/layers/presentation/pages/home/home_page.dart';
+import 'package:smart_menu_app/layers/presentation/pages/profile_page/profile_page.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({Key? key}) : super(key: key);
+  int selectedIndex;
+  BottomBar({
+    Key? key,
+    required this.selectedIndex,
+  }) : super(key: key);
 
   @override
   State<BottomBar> createState() => _BottomBarState();
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectedIndex = 0;
   int _productQuantity = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
-    CartPage(),
-    const Text("Profile"),
+    const CartPage(),
+    const ProfilePage(),
   ];
 
   void _onItemTaped(int index) {
     setState(() {
-      _selectedIndex = index;
+      widget.selectedIndex = index;
     });
   }
 
@@ -33,13 +37,13 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions[_selectedIndex],
+        child: _widgetOptions[widget.selectedIndex],
       ),
       bottomNavigationBar: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           sumProductQuantity(state.cartList);
           return BottomNavigationBar(
-            currentIndex: _selectedIndex,
+            currentIndex: widget.selectedIndex,
             onTap: _onItemTaped,
             elevation: 10,
             showSelectedLabels: false,

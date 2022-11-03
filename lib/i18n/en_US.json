@@ -35,12 +35,18 @@
   "thanks": "Thank you for choosing us!",
   "back_home": "Back to Home",
   "signup": "Sign Up",
-  "signup_email": "Sign up with Email",
-  "signup_google": "Sign up with Google",
-  "signup_facebook": "Sign up with Facebook",
+  "signup_email": "Login with Email",
+  "signup_google": "Login with Google",
+  "signup_facebook": "Login with Facebook",
   "login_email": "Log In Using Email",
   "get_started": "Let's Get Started",
   "sign_or_login_msg": "Sign up or log in to have ",
-  "sign_or_login_msg_complement": "a full digital experience"
-
+  "sign_or_login_msg_complement": "a full digital experience",
+  "hello": "hello, ",
+  "signOut": "Sign Out",
+  "signIn": "Sign In",
+  "my_profile": "My Profile",
+  "orders_qtd": "Orders",
+  "orders_pending": "Pending",
+  "my_orders":"My Orders"
 }
