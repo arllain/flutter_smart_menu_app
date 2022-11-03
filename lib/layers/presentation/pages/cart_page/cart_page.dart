@@ -37,6 +37,7 @@ class CartPage extends StatelessWidget {
             ),
           );
         } else if (state.status.isSuccess) {
+          bool isCartNotEmpty = state.cartList.isNotEmpty;
           return SingleChildScrollView(
             child: SizedBox(
               height: AppLayout.getScreenHeight(),
@@ -78,48 +79,37 @@ class CartPage extends StatelessWidget {
                   const SizedBox(height: 5),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: state.cartList.isNotEmpty
-                        ? MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      AuthService().handleAuthStatePayment(),
-                                ),
-                              );
-                            },
-                            height: 50,
-                            elevation: 0,
-                            splashColor: Styles.buttonSplahColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            color: Styles.buttonColor,
-                            child: Center(
-                              child: Text(
-                                'checkout'.i18n(),
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 18),
-                              ),
+                    child: MaterialButton(
+                      onPressed: () {
+                        if (isCartNotEmpty) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  AuthService().handleAuthStatePayment(),
                             ),
-                          )
-                        : MaterialButton(
-                            onPressed: () {},
-                            height: 50,
-                            elevation: 0,
-                            splashColor: Colors.grey[300],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            color: Colors.grey[300],
-                            child: Center(
-                              child: Text(
-                                'checkout'.i18n(),
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 18),
-                              ),
-                            ),
-                          ),
-                  )
+                          );
+                        }
+                      },
+                      height: 50,
+                      elevation: 0,
+                      splashColor: isCartNotEmpty
+                          ? Styles.buttonSplahColor
+                          : Colors.grey[300],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: isCartNotEmpty
+                          ? Styles.buttonColor
+                          : Colors.grey[300],
+                      child: Center(
+                        child: Text(
+                          'checkout'.i18n(),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
