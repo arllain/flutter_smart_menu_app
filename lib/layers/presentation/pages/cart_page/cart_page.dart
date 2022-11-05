@@ -2,8 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:smart_menu_app/auth_service.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/pages/handle_user_loged_in_state_payment/handle_user_loged_in_state_payment.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
@@ -86,7 +86,7 @@ class CartPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  AuthService().handleAuthStatePayment(),
+                                  const HandleUserSignedInStatePayment(),
                             ),
                           );
                         }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:gap/gap.dart';
 import 'package:localization/localization.dart';
-import 'package:smart_menu_app/auth_service.dart';
+import 'package:smart_menu_app/layers/presentation/auth/bloc/auth_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 
@@ -70,7 +71,7 @@ class LoginRegisterPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     onPressed: () {
-                      AuthService().signInWithGoogle();
+                      context.read<AuthBloc>().add(UserSignInEvent());
                     },
                     mini: false,
                   ),
