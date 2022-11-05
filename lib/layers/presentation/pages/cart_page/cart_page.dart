@@ -2,9 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
-import 'package:smart_menu_app/layers/presentation/pages/payment_page/payment_page.dart';
+import 'package:smart_menu_app/layers/presentation/pages/handle_user_loged_in_state_payment/handle_user_loged_in_state_payment.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
@@ -12,8 +11,7 @@ import 'package:smart_menu_app/layers/presentation/widgets/cart_items_widget/car
 import 'package:smart_menu_app/layers/presentation/widgets/message_display/message_display.dart';
 
 class CartPage extends StatelessWidget {
-  double totalPrice = 0;
-  CartPage({
+  const CartPage({
     Key? key,
   }) : super(key: key);
 
@@ -39,7 +37,7 @@ class CartPage extends StatelessWidget {
             ),
           );
         } else if (state.status.isSuccess) {
-          sumTotal(state.cartList);
+          bool isCartNotEmpty = state.cartList.isNotEmpty;
           return SingleChildScrollView(
             child: SizedBox(
               height: AppLayout.getScreenHeight(),
@@ -72,7 +70,7 @@ class CartPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text('Total', style: TextStyle(fontSize: 20)),
-                        Text(AppUtils.formatCurrency(totalPrice),
+                        Text(AppUtils.formatCurrency(state.cartTotalPrice),
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold))
                       ],
@@ -81,49 +79,37 @@ class CartPage extends StatelessWidget {
                   const SizedBox(height: 5),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: state.cartList.isNotEmpty
-                        ? MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PaymentPage(
-                                    totalItems: totalPrice,
-                                  ),
-                                ),
-                              );
-                            },
-                            height: 50,
-                            elevation: 0,
-                            splashColor: Styles.buttonSplahColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            color: Styles.buttonColor,
-                            child: Center(
-                              child: Text(
-                                'checkout'.i18n(),
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 18),
-                              ),
+                    child: MaterialButton(
+                      onPressed: () {
+                        if (isCartNotEmpty) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const HandleUserSignedInStatePayment(),
                             ),
-                          )
-                        : MaterialButton(
-                            onPressed: () {},
-                            height: 50,
-                            elevation: 0,
-                            splashColor: Colors.grey[300],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            color: Colors.grey[300],
-                            child: Center(
-                              child: Text(
-                                'checkout'.i18n(),
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 18),
-                              ),
-                            ),
-                          ),
-                  )
+                          );
+                        }
+                      },
+                      height: 50,
+                      elevation: 0,
+                      splashColor: isCartNotEmpty
+                          ? Styles.buttonSplahColor
+                          : Colors.grey[300],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: isCartNotEmpty
+                          ? Styles.buttonColor
+                          : Colors.grey[300],
+                      child: Center(
+                        child: Text(
+                          'checkout'.i18n(),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -133,12 +119,5 @@ class CartPage extends StatelessWidget {
         }
       }),
     );
-  }
-
-  sumTotal(Map<ProductEntity, int> cartList) {
-    totalPrice = 0.00;
-    for (var element in cartList.entries) {
-      totalPrice = element.key.price * element.value + totalPrice;
-    }
   }
 }

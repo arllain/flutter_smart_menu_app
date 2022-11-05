@@ -35,14 +35,18 @@
   "thanks": "Gracias por elegirnos!",
   "back_home": "Comienzo",
   "signup": "Inscribirse",
-  "signup_email": "Ingresa con Email",
-  "signup_google": "Ingresa con  Google",
-  "signup_facebook": "Ingresa con Facebook",
+  "signup_email": "Login con Email",
+  "signup_google": "Login con Google",
+  "signup_facebook": "Login con Facebook",
   "login_email": "Iniciar sesión usando Email",
   "get_started": "Empecemos",
   "sign_or_login_msg": "Regístrese o inicie sesión para tener ",
-  "sign_or_login_msg_complement": "una experiencia  digital completa"
-
-
-
+  "sign_or_login_msg_complement": "una experiencia  digital completa",
+  "hello": "Hola, ",
+  "signOut": "Salir",
+  "signIn": "Iniciar sesión",
+  "my_profile": "Mi Perfil",
+  "orders_qtd": "Pedidos",
+  "orders_pending": "Pendiente",
+  "my_orders":"Mi Pedidos"
 }

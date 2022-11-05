@@ -79,6 +79,14 @@ class QrCodePage extends StatelessWidget {
                       builder: (context) => EnjoyPage(msng: result),
                     ),
                   );
+                } else {
+                  // ignore: use_build_context_synchronously
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QrCodePage(),
+                    ),
+                  );
                 }
               },
               height: 50,
@@ -108,7 +116,9 @@ class QrCodePage extends StatelessWidget {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'cancel'.i18n(), false, ScanMode.QR);
 
-      barcodeScanRes = 'thanks'.i18n();
+      if (barcodeScanRes != '-1') {
+        barcodeScanRes = 'thanks'.i18n();
+      }
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }

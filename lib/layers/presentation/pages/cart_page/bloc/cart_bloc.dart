@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
+import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
@@ -28,8 +29,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           cart[event.product] = cart[event.product]! - 1;
         }
       }
+      double cartTotal = AppUtils.sumTotal(cart);
       emit(state.copyWith(status: CartStatus.loading));
-      emit(state.copyWith(status: CartStatus.success, cartList: cart));
+      emit(state.copyWith(
+          status: CartStatus.success,
+          cartList: cart,
+          cartTotalPrice: cartTotal));
     });
 
     on<DeleteProductsEvent>((event, emit) {
@@ -37,8 +42,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           Map<ProductEntity, int>.from((state.cartList));
       cart.remove(event.product);
 
+      double cartTotal = AppUtils.sumTotal(cart);
       emit(state.copyWith(status: CartStatus.loading));
-      emit(state.copyWith(status: CartStatus.success, cartList: cart));
+      emit(state.copyWith(
+          status: CartStatus.success,
+          cartList: cart,
+          cartTotalPrice: cartTotal));
     });
   }
 }
