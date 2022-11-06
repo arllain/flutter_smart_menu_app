@@ -33,7 +33,7 @@ void main() {
         .thenAnswer((_) async => Right(categoryEntity));
 
     // act
-    var result = await useCase(const Params(id: id));
+    var result = await useCase(const Params(arg: id));
 
     // assert
     expect(result, Right(categoryEntity));

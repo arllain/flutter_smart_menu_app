@@ -5,7 +5,7 @@ import 'package:smart_menu_app/layers/presentation/pages/enjoy_page/enjoy_page.d
 import 'package:smart_menu_app/layers/presentation/pages/home/home_page.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:localization/localization.dart';
-import 'package:smart_menu_app/main.dart';
+import 'package:smart_menu_app/layers/presentation/widgets/bottom_bar/bottom_bar.dart';
 
 class QrCodePage extends StatelessWidget {
   const QrCodePage({super.key});
@@ -51,7 +51,7 @@ class QrCodePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute<HomePage>(
-                    builder: ((context) => const MyApp()),
+                    builder: ((context) => BottomBar(selectedIndex: 0)),
                   ),
                 );
               },

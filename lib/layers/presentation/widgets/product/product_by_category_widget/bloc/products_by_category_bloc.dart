@@ -21,7 +21,7 @@ class ProductsByCategoryBloc
       Emitter<ProductsByCategoryState> emit) async {
     emit(state.copyWith(status: ProductStatus.loading));
     final failureOrProductList =
-        await getProductsByCategoryUseCase(Params(id: event.idSelected));
+        await getProductsByCategoryUseCase(Params(arg: event.idSelected));
 
     failureOrProductList?.fold((failure) {
       emit(state.copyWith(

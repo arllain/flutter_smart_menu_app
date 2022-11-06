@@ -59,13 +59,6 @@ class LoginRegisterPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SignInButton(
-                    Buttons.Email,
-                    text: 'signup_email'.i18n(),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                    onPressed: () {},
-                  ),
-                  SignInButton(
                     Buttons.Google,
                     text: 'signup_google'.i18n(),
                     shape: RoundedRectangleBorder(
@@ -82,19 +75,14 @@ class LoginRegisterPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)),
                     onPressed: () {},
                   ),
-                  const Gap(100),
-                  GestureDetector(
-                    child: Text('login_email'.i18n(),
-                        style: const TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Colors.blue)),
-                    onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => EmailLogIn()),
-                      // );
-                    },
+                  SignInButton(
+                    Buttons.Email,
+                    text: 'signup_email'.i18n(),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    onPressed: () {},
                   ),
+                  const Gap(120),
                 ],
               ),
             ),

@@ -64,7 +64,7 @@ void main() {
         .thenAnswer((_) async => Right(productList));
 
     // act
-    var result = await useCase(Params(id: categoryEntity.id));
+    var result = await useCase(Params(arg: categoryEntity.id));
 
     //assert
     expect(result, Right(productList));

@@ -12,6 +12,6 @@ class GetCategoryByIdUseCase implements UseCase<CategoryEntity, Params> {
 
   @override
   Future<Either<Failure, CategoryEntity>> call(Params params) async {
-    return await repository.getCategoryById(params.id);
+    return await repository.getCategoryById(params.arg);
   }
 }

@@ -13,6 +13,6 @@ class GetProductsByCategoryUseCase
 
   @override
   Future<Either<Failure, List<ProductEntity>>?> call(Params params) async {
-    return await repository.getProductsByCategory(params.id);
+    return await repository.getProductsByCategory(params.arg);
   }
 }

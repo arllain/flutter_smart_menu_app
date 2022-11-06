@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smart_menu_app/core/error/failure_message.dart';
@@ -55,20 +54,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final failureOrUser = await userSignInUseCase(NoParams());
 
     failureOrUser.fold(
-      (failure) => emit(
-        state.copyWith(
-          user: null,
-          status: AuthStatus.error,
-          message: FailureMessage.mapFailureToMessage(failure),
-        ),
-      ),
-      (user) => emit(
-        state.copyWith(
-          user: user,
-          status: AuthStatus.success,
-        ),
-      ),
-    );
+        (failure) => emit(
+              state.copyWith(
+                user: null,
+                status: AuthStatus.error,
+                message: FailureMessage.mapFailureToMessage(failure),
+              ),
+            ),
+        (user) => emit(state.copyWith(
+              user: user,
+              status: AuthStatus.success,
+            )));
   }
 
   void _mapUserSignOutEventToState(
@@ -92,5 +88,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ),
       ),
     );
+  }
+
+  void _mapSaveUserEventToState(
+      AuthEvent event, Emitter<AuthState> emit) async {
+    emit(state.copyWith(status: AuthStatus.loading));
+    final failureOrUser = await userSignInUseCase(NoParams());
+
+    failureOrUser.fold(
+        (failure) => emit(
+              state.copyWith(
+                user: null,
+                status: AuthStatus.error,
+                message: FailureMessage.mapFailureToMessage(failure),
+              ),
+            ), (user) {
+      emit(
+        state.copyWith(
+          user: user,
+          status: AuthStatus.success,
+        ),
+      );
+    });
   }
 }

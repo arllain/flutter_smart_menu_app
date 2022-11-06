@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 class Params extends Equatable {
-  final int id;
+  final dynamic arg;
 
-  const Params({required this.id});
+  const Params({required this.arg});
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [arg];
 }

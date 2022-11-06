@@ -14,15 +14,20 @@ import 'package:smart_menu_app/layers/data/datasources/product/remote/product_re
 import 'package:smart_menu_app/layers/data/datasources/product/remote/product_remote_datasource_impl.dart';
 import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/firabese/firebase_datasource._impl.dart';
 import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/firabese/firebase_datasource.dart';
+import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/user_remote_datasource/user_remote_datasource.dart';
+import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/user_remote_datasource/user_remote_datasource_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/category/category_repository_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/product/product_repository_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/user/auth/auth_repository_impl.dart';
+import 'package:smart_menu_app/layers/data/repostirories/user/user_repository_impl.dart';
 import 'package:smart_menu_app/layers/domain/repositories/category/category_repository.dart';
 import 'package:smart_menu_app/layers/domain/repositories/product/product_repository.dart';
 import 'package:smart_menu_app/layers/domain/repositories/user/auth/auth_repostitory.dart';
+import 'package:smart_menu_app/layers/domain/repositories/user/user_repository.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/product/get_products_by_category/get_products_by_category_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/user/get_current_user_usecase/get_current_user_usecase.dart';
+import 'package:smart_menu_app/layers/domain/usecases/user/save_user_usecase/save_user_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/user/user_sign_in_usecase/user_sign_in_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/user/user_sign_out_usecase/user_sign_out_usecase.dart';
 import 'package:smart_menu_app/layers/presentation/auth/bloc/auth_bloc.dart';
@@ -34,6 +39,22 @@ import 'package:smart_menu_app/layers/presentation/widgets/product/product_by_ca
 final getIt = GetIt.instance;
 
 Future<void> init() async {
+  //! User
+  // Use cases
+  getIt.registerLazySingleton(() => SaveUserUseCase(getIt()));
+
+  // Repository
+  getIt.registerLazySingleton<UserRepository>(
+    () => UserRepositoryImpl(
+      userRemoteDataSource: getIt(),
+      networkInfo: getIt(),
+    ),
+  );
+
+  // Data sources
+  getIt.registerLazySingleton<UserRemoteDataSource>(
+      () => UserRemoteDataSourceImpl(client: getIt()));
+
   //! Category
   // Bloc
   getIt.registerFactory(() => CategoryBloc(getAllCategoriesUseCase: getIt()));
