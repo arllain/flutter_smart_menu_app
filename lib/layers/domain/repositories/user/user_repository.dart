@@ -3,5 +3,5 @@ import 'package:smart_menu_app/core/error/failure.dart';
 import 'package:smart_menu_app/layers/domain/entities/user/user_entity.dart';
 
 abstract class UserRepository {
-  Future<Either<Failure, UserEntity>> saveUser(UserEntity userEntity);
+  Future<Either<Failure, bool>> saveUser(UserEntity userEntity);
 }

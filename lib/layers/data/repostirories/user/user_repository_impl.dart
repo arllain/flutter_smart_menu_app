@@ -16,22 +16,16 @@ class UserRepositoryImpl implements UserRepository {
   });
 
   @override
-  Future<Either<Failure, UserEntity>> saveUser(UserEntity userEntity) async {
+  Future<Either<Failure, bool>> saveUser(UserEntity userEntity) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteUser = await userRemoteDataSource.saveUser(userEntity);
-        return Right(remoteUser);
+        final isSuccesful = await userRemoteDataSource.saveUser(userEntity);
+        return Right(isSuccesful);
       } on ServerException {
         return Left(ServerFailure());
       }
     } else {
-      // try {
-      //   final localCategoryList =
-      //       await categoryLocalDataSource.getAllCategories();
-      //   return Right(localCategoryList);
-      // } on CacheException {
-      return Left(CacheFailure());
-      // }
+      return Left(ServerFailure());
     }
   }
 }

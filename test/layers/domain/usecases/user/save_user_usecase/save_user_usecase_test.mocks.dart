@@ -38,12 +38,11 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> saveUser(
+  _i4.Future<_i2.Either<_i5.Failure, bool>> saveUser(
           _i6.UserEntity? userEntity) =>
       (super.noSuchMethod(Invocation.method(#saveUser, [userEntity]),
-              returnValue:
-                  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
-                      _FakeEither_0<_i5.Failure, _i6.UserEntity>(
-                          this, Invocation.method(#saveUser, [userEntity]))))
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
+              returnValue: _i4.Future<_i2.Either<_i5.Failure, bool>>.value(
+                  _FakeEither_0<_i5.Failure, bool>(
+                      this, Invocation.method(#saveUser, [userEntity]))))
+          as _i4.Future<_i2.Either<_i5.Failure, bool>>);
 }

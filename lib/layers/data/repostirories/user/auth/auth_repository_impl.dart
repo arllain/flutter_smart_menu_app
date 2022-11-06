@@ -6,14 +6,17 @@ import 'package:smart_menu_app/core/network/network_info.dart';
 import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/firabese/firebase_datasource.dart';
 import 'package:smart_menu_app/layers/data/models/user/user_model.dart';
 import 'package:smart_menu_app/layers/domain/repositories/user/auth/auth_repostitory.dart';
+import 'package:smart_menu_app/layers/domain/repositories/user/user_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final FirebaseDataSource firebaseDataSource;
   final NetworkInfo networkInfo;
+  final UserRepository userRepository;
 
   AuthRepositoryImpl({
     required this.firebaseDataSource,
     required this.networkInfo,
+    required this.userRepository,
   });
 
   @override
@@ -52,6 +55,7 @@ class AuthRepositoryImpl implements AuthRepository {
               photoURL: userCredential.user?.photoURL,
               isVerified: userCredential.user?.emailVerified,
               displayName: userCredential.user?.displayName);
+          await userRepository.saveUser(userModel);
           return Right(userModel);
         }
         return const Right(null);

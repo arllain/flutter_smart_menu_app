@@ -29,16 +29,16 @@ void main() {
   test('should save a user to database', () async {
     // arrange
     when(mockUserRepository.saveUser(userEntity))
-        .thenAnswer((_) async => Right(userEntity));
+        .thenAnswer((_) async => const Right(true));
 
     // act
     var result = await useCase(Params(arg: userEntity));
-    late UserEntity expectedUser;
+    late bool isSuccesful;
 
-    result.fold((l) => null, (r) => expectedUser = r);
+    result.fold((l) => null, (r) => isSuccesful = r);
 
     // assert
-    expect(result, Right(expectedUser));
+    expect(result, Right(isSuccesful));
     verify(mockUserRepository.saveUser(userEntity));
     verifyNoMoreInteractions(mockUserRepository);
   });

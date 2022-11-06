@@ -117,8 +117,11 @@ Future<void> init() async {
   getIt.registerLazySingleton(() => UserSignOutUseCase(getIt()));
 
   // Repository
-  getIt.registerLazySingleton<AuthRepository>(() =>
-      AuthRepositoryImpl(firebaseDataSource: getIt(), networkInfo: getIt()));
+  getIt.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(
+        firebaseDataSource: getIt(),
+        networkInfo: getIt(),
+        userRepository: getIt(),
+      ));
 
   // Data Sources
   getIt.registerLazySingleton<FirebaseDataSource>(
