@@ -4,7 +4,6 @@ import 'package:smart_menu_app/layers/domain/entities/user/user_entity.dart';
 
 void main() {
   test('Order Entity expected not to be null', () {
-    var dateCreated = DateTime.now();
     UserEntity userEntity = const UserEntity(
         uid: '154545454548',
         isVerified: true,
@@ -13,16 +12,15 @@ void main() {
         displayName: 'user entity');
 
     OrderEntity orderEntity = OrderEntity(
-        id: 1,
-        userEntity: userEntity,
-        isDelivered: false,
-        dateCreated: dateCreated);
+      id: 1,
+      userEntity: userEntity,
+      isDelivered: false,
+    );
 
     expect(orderEntity, isNotNull);
   });
 
   test('Order Entity expected not to hava a not null user', () {
-    var dateCreated = DateTime.now();
     UserEntity userEntity = const UserEntity(
         uid: '154545454548',
         isVerified: true,
@@ -31,10 +29,10 @@ void main() {
         displayName: 'user entity');
 
     OrderEntity orderEntity = OrderEntity(
-        id: 1,
-        userEntity: userEntity,
-        isDelivered: false,
-        dateCreated: dateCreated);
+      id: 1,
+      userEntity: userEntity,
+      isDelivered: false,
+    );
 
     expect(orderEntity.userEntity, isNotNull);
   });

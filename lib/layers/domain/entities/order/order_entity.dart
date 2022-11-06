@@ -5,15 +5,13 @@ class OrderEntity extends Equatable {
   final int id;
   final UserEntity userEntity;
   final bool isDelivered;
-  final DateTime dateCreated;
 
   const OrderEntity({
     required this.id,
     required this.userEntity,
     required this.isDelivered,
-    required this.dateCreated,
   });
 
   @override
-  List<Object?> get props => [id, userEntity, isDelivered, dateCreated];
+  List<Object?> get props => [id, userEntity, isDelivered];
 }

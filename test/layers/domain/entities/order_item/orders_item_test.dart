@@ -33,10 +33,10 @@ void main() {
         displayName: 'user entity');
 
     OrderEntity order = OrderEntity(
-        id: 1,
-        userEntity: userEntity,
-        isDelivered: false,
-        dateCreated: dateCreated);
+      id: 1,
+      userEntity: userEntity,
+      isDelivered: false,
+    );
 
     OrderItemsEntity orderItem = OrderItemsEntity(
         id: 10, orderEntity: order, productEntity: productEntity, quantity: 2);
@@ -70,10 +70,10 @@ void main() {
         displayName: 'user entity');
 
     OrderEntity order = OrderEntity(
-        id: 1,
-        userEntity: userEntity,
-        isDelivered: false,
-        dateCreated: dateCreated);
+      id: 1,
+      userEntity: userEntity,
+      isDelivered: false,
+    );
 
     OrderItemsEntity orderItem = OrderItemsEntity(
         id: 10, orderEntity: order, productEntity: productEntity, quantity: 2);
