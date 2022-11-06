@@ -12,8 +12,11 @@ void main() {
         photoURL: "https://photoURL.com",
         displayName: 'user entity');
 
-    OrderEntity orderEntity =
-        OrderEntity(id: 1, userEntity: userEntity, dateCreated: dateCreated);
+    OrderEntity orderEntity = OrderEntity(
+        id: 1,
+        userEntity: userEntity,
+        isDelivered: false,
+        dateCreated: dateCreated);
 
     expect(orderEntity, isNotNull);
   });
@@ -27,8 +30,11 @@ void main() {
         photoURL: "https://photoURL.com",
         displayName: 'user entity');
 
-    OrderEntity orderEntity =
-        OrderEntity(id: 1, userEntity: userEntity, dateCreated: dateCreated);
+    OrderEntity orderEntity = OrderEntity(
+        id: 1,
+        userEntity: userEntity,
+        isDelivered: false,
+        dateCreated: dateCreated);
 
     expect(orderEntity.userEntity, isNotNull);
   });
