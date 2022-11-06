@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "order_id": {
+    "id": 1,
+    "isDelivered": false,
+    "userModel": {
+      "uid": "123456",
+      "email": "email@test.com",
+      "photoURL": "https://photoURL.com",
+      "isVerified": true,
+      "displayName": "displayName"
+    }
+  },
+  "product_id": {
+    "id": 1,
+    "name": "product name",
+    "description": "product description",
+    "price": 5.00,
+    "imageURL": "https://images",
+    "created_at": "2022-08-27T21:40:19+00:00",
+    "category": {
+      "id": 1,
+      "name": "category name",
+      "description": "category description",
+      "created_at": "2022-08-27T21:40:19+00:00"
+    }
+  },
+  "quantity": 2
+}

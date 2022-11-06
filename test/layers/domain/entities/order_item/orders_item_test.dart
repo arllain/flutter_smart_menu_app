@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/entities/order/order_entity.dart';
-import 'package:smart_menu_app/layers/domain/entities/order_items/order_items_entity.dart';
+import 'package:smart_menu_app/layers/domain/entities/order_item/order_item_entity.dart';
 import 'package:smart_menu_app/layers/domain/entities/product/product_entity.dart';
 import 'package:smart_menu_app/layers/domain/entities/user/user_entity.dart';
 
@@ -38,7 +38,7 @@ void main() {
       isDelivered: false,
     );
 
-    OrderItemsEntity orderItem = OrderItemsEntity(
+    OrderItemEntity orderItem = OrderItemEntity(
         id: 10, orderEntity: order, productEntity: productEntity, quantity: 2);
 
     expect(orderItem, isNotNull);
@@ -75,7 +75,7 @@ void main() {
       isDelivered: false,
     );
 
-    OrderItemsEntity orderItem = OrderItemsEntity(
+    OrderItemEntity orderItem = OrderItemEntity(
         id: 10, orderEntity: order, productEntity: productEntity, quantity: 2);
 
     expect(orderItem, isNotNull);
