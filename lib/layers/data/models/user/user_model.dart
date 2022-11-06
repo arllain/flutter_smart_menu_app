@@ -29,4 +29,14 @@ class UserModel extends UserEntity {
       displayName: doc.get('displayName'),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'uid': uid,
+      'email': email,
+      'isVerified': isVerified,
+      'photoURL': photoURL,
+      'displayName': displayName
+    };
+  }
 }
