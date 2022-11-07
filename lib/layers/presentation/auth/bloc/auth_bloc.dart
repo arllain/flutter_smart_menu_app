@@ -89,26 +89,4 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ),
     );
   }
-
-  void _mapSaveUserEventToState(
-      AuthEvent event, Emitter<AuthState> emit) async {
-    emit(state.copyWith(status: AuthStatus.loading));
-    final failureOrUser = await userSignInUseCase(NoParams());
-
-    failureOrUser.fold(
-        (failure) => emit(
-              state.copyWith(
-                user: null,
-                status: AuthStatus.error,
-                message: FailureMessage.mapFailureToMessage(failure),
-              ),
-            ), (user) {
-      emit(
-        state.copyWith(
-          user: user,
-          status: AuthStatus.success,
-        ),
-      );
-    });
-  }
 }

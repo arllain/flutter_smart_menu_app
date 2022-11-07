@@ -8,6 +8,8 @@ import 'package:smart_menu_app/layers/data/datasources/category/local/category_l
 import 'package:smart_menu_app/layers/data/datasources/category/local/category_local_datasource_impl.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/remote/category_remore_datasource.dart';
 import 'package:smart_menu_app/layers/data/datasources/category/remote/category_remore_datasource_impl.dart';
+import 'package:smart_menu_app/layers/data/datasources/order/remote/order_remote_datasource.dart';
+import 'package:smart_menu_app/layers/data/datasources/order/remote/order_remote_datasource_impl.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/local/product_local_datasource.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/local/product_local_datasource_impl.dart';
 import 'package:smart_menu_app/layers/data/datasources/product/remote/product_remote_datasource.dart';
@@ -17,14 +19,17 @@ import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/firabese
 import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/user_remote_datasource/user_remote_datasource.dart';
 import 'package:smart_menu_app/layers/data/datasources/user/auth/remote/user_remote_datasource/user_remote_datasource_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/category/category_repository_impl.dart';
+import 'package:smart_menu_app/layers/data/repostirories/order/order_repository_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/product/product_repository_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/user/auth/auth_repository_impl.dart';
 import 'package:smart_menu_app/layers/data/repostirories/user/user_repository_impl.dart';
 import 'package:smart_menu_app/layers/domain/repositories/category/category_repository.dart';
+import 'package:smart_menu_app/layers/domain/repositories/order/order_repository.dart';
 import 'package:smart_menu_app/layers/domain/repositories/product/product_repository.dart';
 import 'package:smart_menu_app/layers/domain/repositories/user/auth/auth_repostitory.dart';
 import 'package:smart_menu_app/layers/domain/repositories/user/user_repository.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';
+import 'package:smart_menu_app/layers/domain/usecases/order/save_order_usecase/save_order_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/product/get_products_by_category/get_products_by_category_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/user/get_current_user_usecase/get_current_user_usecase.dart';
 import 'package:smart_menu_app/layers/domain/usecases/user/save_user_usecase/save_user_usecase.dart';
@@ -32,6 +37,7 @@ import 'package:smart_menu_app/layers/domain/usecases/user/user_sign_in_usecase/
 import 'package:smart_menu_app/layers/domain/usecases/user/user_sign_out_usecase/user_sign_out_usecase.dart';
 import 'package:smart_menu_app/layers/presentation/auth/bloc/auth_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/pages/order/bloc/order_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/category_widget/bloc/category_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/product/product_by_category_widget/bloc/products_by_category_bloc.dart';
 
@@ -126,6 +132,23 @@ Future<void> init() async {
   // Data Sources
   getIt.registerLazySingleton<FirebaseDataSource>(
       () => FirebaseDataSourceImpl(firebaseAuth: getIt()));
+
+  //! Order
+  //Bloc
+  getIt.registerLazySingleton(() => OrderBloc(saveOrderUseCase: getIt()));
+
+  // Use cases
+  getIt.registerLazySingleton(() => SaveOrderUseCase(getIt()));
+
+  // Repository
+  getIt.registerLazySingleton<OrderRepository>(() => OrderRepositoryImpl(
+        orderRemoteDataSource: getIt(),
+        networkInfo: getIt(),
+      ));
+
+  // Data Sources
+  getIt.registerLazySingleton<OrderRemoteDataSource>(
+      () => OrderRemoteDataSourceImpl(client: getIt()));
 
   //! Core
   getIt.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(getIt()));

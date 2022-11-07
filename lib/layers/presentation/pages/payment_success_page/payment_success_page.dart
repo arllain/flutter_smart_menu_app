@@ -34,7 +34,7 @@ class PaymentSuccessPage extends StatelessWidget {
                   .copyWith(color: Styles.greyColor, fontSize: 12),
             ),
             const SizedBox(
-              height: 180.0,
+              height: 160.0,
             ),
             MaterialButton(
               onPressed: () {

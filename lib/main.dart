@@ -8,6 +8,7 @@ import 'package:smart_menu_app/core/inject/injection_container.dart' as di;
 import 'package:smart_menu_app/core/inject/injection_container.dart';
 import 'package:smart_menu_app/layers/presentation/auth/bloc/auth_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
+import 'package:smart_menu_app/layers/presentation/pages/order/bloc/order_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/widgets/bottom_bar/bottom_bar.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => getIt<CartBloc>()..add(GetCartList())),
         BlocProvider(
-            create: (create) => getIt<AuthBloc>()..add(GetCurrentUserEvent()))
+            create: (create) => getIt<AuthBloc>()..add(GetCurrentUserEvent())),
+        BlocProvider(create: (create) => getIt<OrderBloc>())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

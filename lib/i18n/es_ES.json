@@ -48,5 +48,6 @@
   "my_profile": "Mi Perfil",
   "orders_qtd": "Pedidos",
   "orders_pending": "Pendiente",
-  "my_orders":"Mi Pedidos"
+  "my_orders":"Mi Pedidos",
+  "processing": "Processando ..."
 }

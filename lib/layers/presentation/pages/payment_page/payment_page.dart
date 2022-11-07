@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
-import 'package:smart_menu_app/layers/presentation/pages/payment_success_page/payment_success_page.dart';
+import 'package:smart_menu_app/layers/presentation/pages/order/save_order.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_layout.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_styles.dart';
 import 'package:smart_menu_app/layers/presentation/utils/app_utils.dart';
@@ -239,8 +239,7 @@ class PaymentPage extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      const PaymentSuccessPage(),
+                                  builder: (context) => const SaveOrder(),
                                 ));
                           },
                           height: 50,
