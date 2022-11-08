@@ -18,6 +18,7 @@ void main() {
     id: 1,
     userModel: tUserModel,
     isDelivered: false,
+    items: const [],
   );
 
   test('should be a subclass of Order entity', () {

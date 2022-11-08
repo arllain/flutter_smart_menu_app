@@ -36,6 +36,7 @@ void main() {
       id: 1,
       userEntity: userEntity,
       isDelivered: false,
+      items: const [],
     );
 
     OrderItemEntity orderItem = OrderItemEntity(
@@ -73,6 +74,7 @@ void main() {
       id: 1,
       userEntity: userEntity,
       isDelivered: false,
+      items: const [],
     );
 
     OrderItemEntity orderItem = OrderItemEntity(

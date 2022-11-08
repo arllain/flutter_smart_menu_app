@@ -7,5 +7,6 @@
     "photoURL": "https://photoURL.com",
     "isVerified": true,
     "displayName": "displayName"
-  }
+  },
+  "items": []
 }

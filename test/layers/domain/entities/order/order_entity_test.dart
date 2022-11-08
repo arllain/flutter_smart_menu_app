@@ -15,6 +15,7 @@ void main() {
       id: 1,
       userEntity: userEntity,
       isDelivered: false,
+      items: const [],
     );
 
     expect(orderEntity, isNotNull);
@@ -32,6 +33,7 @@ void main() {
       id: 1,
       userEntity: userEntity,
       isDelivered: false,
+      items: const [],
     );
 
     expect(orderEntity.userEntity, isNotNull);

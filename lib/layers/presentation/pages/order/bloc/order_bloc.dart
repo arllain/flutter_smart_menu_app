@@ -19,10 +19,10 @@ class OrderBloc extends Bloc<SaveOrderEvent, OrderState> {
   void _mapSaveOrderEventToState(
       SaveOrderEvent event, Emitter<OrderState> emit) async {
     emit(state.copyWith(status: OrderStatus.loading));
-    final failureOrOrder =
+    final failureOrOrderId =
         await saveOrderUseCase(Params(arg: event.orderModel));
 
-    failureOrOrder.fold(
+    failureOrOrderId.fold(
         (failure) => emit(
               state.copyWith(
                 orderModel: null,
@@ -30,8 +30,8 @@ class OrderBloc extends Bloc<SaveOrderEvent, OrderState> {
                 message: FailureMessage.mapFailureToMessage(failure),
               ),
             ),
-        (order) => emit(state.copyWith(
-              orderModel: order as OrderModel,
+        (orderId) => emit(state.copyWith(
+              orderId: orderId,
               status: OrderStatus.success,
             )));
   }

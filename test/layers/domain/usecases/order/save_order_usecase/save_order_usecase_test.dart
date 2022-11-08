@@ -35,12 +35,14 @@ void main() {
     id: 1,
     userEntity: userEntity,
     isDelivered: false,
+    items: const [],
   );
 
   OrderModel orderModel = OrderModel(
     id: 1,
     userModel: userModel,
     isDelivered: false,
+    items: const [],
   );
 
   setUp(() {
@@ -51,16 +53,16 @@ void main() {
   test('should save a order to database', () async {
     // arrange
     when(mockOrderRepository.saveOrder(orderEntity))
-        .thenAnswer((_) async => Right(orderModel));
+        .thenAnswer((_) async => Right(orderModel.id));
 
     // act
     var result = await useCase(Params(arg: orderEntity));
-    late OrderModel expectedOrder;
+    late int expectedOrderId;
 
-    result.fold((l) => null, (r) => expectedOrder = r as OrderModel);
+    result.fold((l) => null, (r) => expectedOrderId = r);
 
     // assert
-    expect(result, Right(expectedOrder));
+    expect(result, Right(expectedOrderId));
     verify(mockOrderRepository.saveOrder(orderEntity));
     verifyNoMoreInteractions(mockOrderRepository);
   });

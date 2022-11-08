@@ -9,7 +9,8 @@
       "photoURL": "https://photoURL.com",
       "isVerified": true,
       "displayName": "displayName"
-    }
+    },
+    "items": []
   },
   "product_id": {
     "id": 1,

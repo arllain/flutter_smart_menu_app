@@ -39,6 +39,7 @@ void main() {
     id: 1,
     userModel: tUserModel,
     isDelivered: false,
+    items: const [],
   );
 
   var tOrderItemModel = OrderItemModel(
@@ -46,6 +47,13 @@ void main() {
     orderModel: tOrderModel,
     productModel: tProductModel,
     quantity: 2,
+  );
+
+  tOrderModel = OrderModel(
+    id: 1,
+    userModel: tUserModel,
+    isDelivered: false,
+    items: [tOrderItemModel],
   );
 
   test('should be a subclass of Order Item entity', () {

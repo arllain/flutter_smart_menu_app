@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:smart_menu_app/layers/data/models/order/order_model.dart';
+import 'package:smart_menu_app/layers/data/models/order_item/order_item_model.dart';
+import 'package:smart_menu_app/layers/data/models/product/product_model.dart';
 import 'package:smart_menu_app/layers/data/models/user/user_model.dart';
 import 'package:smart_menu_app/layers/presentation/auth/bloc/auth_bloc.dart';
 import 'package:smart_menu_app/layers/presentation/pages/cart_page/bloc/cart_bloc.dart';
@@ -18,7 +20,19 @@ class SaveOrder extends StatelessWidget {
     var cartList = BlocProvider.of<CartBloc>(context).state.cartList;
 
     OrderModel orderModel =
-        OrderModel(id: 0, userModel: user, isDelivered: false);
+        OrderModel(id: 0, userModel: user, isDelivered: false, items: const []);
+    List<OrderItemModel> items = [];
+    cartList.forEach((key, value) {
+      OrderItemModel orderItemModel = OrderItemModel(
+          id: 0,
+          orderModel: orderModel,
+          productModel: key as ProductModel,
+          quantity: value);
+      items.add(orderItemModel);
+    });
+
+    orderModel = OrderModel(
+        id: orderModel.id, userModel: user, isDelivered: false, items: items);
 
     context.read<OrderBloc>().add(SaveOrderEvent(orderModel: orderModel));
 
@@ -49,6 +63,9 @@ class SaveOrder extends StatelessWidget {
                 ],
               );
             } else if (state.status.isSuccess) {
+              // BlocProvider.of<CartBloc>(context).state.copyWith(cartList: null);
+              context.read<CartBloc>().add(ClearCartEvent());
+
               return const PaymentSuccessPage();
             } else {
               return MessageDisplay(message: state.message);

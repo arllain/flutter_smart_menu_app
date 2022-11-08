@@ -8,10 +8,8 @@ import 'dart:async' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:smart_menu_app/core/error/failure.dart' as _i5;
-import 'package:smart_menu_app/layers/data/models/order/order_model.dart'
-    as _i6;
 import 'package:smart_menu_app/layers/domain/entities/order/order_entity.dart'
-    as _i7;
+    as _i6;
 import 'package:smart_menu_app/layers/domain/repositories/order/order_repository.dart'
     as _i3;
 
@@ -40,12 +38,11 @@ class MockOrderRepository extends _i1.Mock implements _i3.OrderRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.OrderModel>> saveOrder(
-          _i7.OrderEntity? orderEntity) =>
+  _i4.Future<_i2.Either<_i5.Failure, int>> saveOrder(
+          _i6.OrderEntity? orderEntity) =>
       (super.noSuchMethod(Invocation.method(#saveOrder, [orderEntity]),
-              returnValue:
-                  _i4.Future<_i2.Either<_i5.Failure, _i6.OrderModel>>.value(
-                      _FakeEither_0<_i5.Failure, _i6.OrderModel>(
-                          this, Invocation.method(#saveOrder, [orderEntity]))))
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.OrderModel>>);
+              returnValue: _i4.Future<_i2.Either<_i5.Failure, int>>.value(
+                  _FakeEither_0<_i5.Failure, int>(
+                      this, Invocation.method(#saveOrder, [orderEntity]))))
+          as _i4.Future<_i2.Either<_i5.Failure, int>>);
 }
