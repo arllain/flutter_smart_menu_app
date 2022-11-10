@@ -1,0 +1,31 @@
+import 'package:smart_menu_app/core/error/exceptions.dart';
+import 'package:smart_menu_app/core/network/network_info.dart';
+import 'package:smart_menu_app/layers/data/datasources/order/remote/order_remote_datasource.dart';
+import 'package:smart_menu_app/layers/domain/entities/order/order_entity.dart';
+import 'package:smart_menu_app/core/error/failure.dart';
+import 'package:dartz/dartz.dart';
+import 'package:smart_menu_app/layers/domain/repositories/order/order_repository.dart';
+
+class OrderRepositoryImpl implements OrderRepository {
+  final OrderRemoteDataSource orderRemoteDataSource;
+  final NetworkInfo networkInfo;
+
+  OrderRepositoryImpl({
+    required this.orderRemoteDataSource,
+    required this.networkInfo,
+  });
+
+  @override
+  Future<Either<Failure, int>> saveOrder(OrderEntity orderEntity) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final orderId = await orderRemoteDataSource.saveOrder(orderEntity);
+        return Right(orderId);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(ServerFailure());
+    }
+  }
+}

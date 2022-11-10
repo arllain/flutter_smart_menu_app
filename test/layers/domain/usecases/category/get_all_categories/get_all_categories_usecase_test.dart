@@ -2,10 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:smart_menu_app/core/usecases/usecase.dart';
 import 'package:smart_menu_app/layers/domain/entities/category/category_entity.dart';
 import 'package:smart_menu_app/layers/domain/repositories/category/category_repository.dart';
 import 'package:smart_menu_app/layers/domain/usecases/category/get_all_categories/get_all_categories_usecase.dart';
+import 'package:smart_menu_app/layers/domain/usecases/params/no_params.dart';
 
 import 'get_all_categories_usecase_test.mocks.dart';
 
@@ -21,8 +21,8 @@ void main() {
       dateCreated: DateTime.now());
 
   CategoryEntity categoryEntity2 = CategoryEntity(
-      id: 1,
-      name: 'category 1',
+      id: 2,
+      name: 'category 2',
       description: "description",
       dateCreated: DateTime.now());
 

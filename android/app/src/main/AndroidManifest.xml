@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.smart_menu_app">
+    package="com.arllain.smart_menu_app">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="smart_menu_app"
         android:name="${applicationName}"
